@@ -29,6 +29,7 @@ public class AGA_GAME extends Game {
 
     private static final Dimension dimesion = new Dimension(1024, 750);
     Background background;
+
     private BactoriumFactory heroGroup;
     private ParticleFactory partGroup;
 
