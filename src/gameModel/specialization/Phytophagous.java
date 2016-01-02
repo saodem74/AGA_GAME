@@ -5,10 +5,43 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
+import gameModel.particles.Particle;
+
 /**
  *
  * @author trung
  */
-public class Phytophagous {
-    
+public class Phytophagous extends Protozoan {
+
+    public Phytophagous(int weight) {
+        super(weight);
+        this.Type = Constants.PHYTOPHAGOUS;
+        this.Name = Constants.PHYTOPHAGOUS;
+    }
+
+    @Override
+    public boolean canEat(Specialization other) {
+        return other.getType().equalsIgnoreCase(Constants.PLANT)
+                && 1.25 * this.weight > other.getWeight();
+    }
+
+    @Override
+    public boolean canEat(Particle particle) {
+
+        String type = particle.getType();
+        return type.equalsIgnoreCase(Constants.WATER)
+                || type.equalsIgnoreCase(Constants.O2);
+    }
+
+    @Override
+    public void produceGas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

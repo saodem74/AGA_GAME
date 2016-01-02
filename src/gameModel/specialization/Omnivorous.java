@@ -17,16 +17,26 @@ public class Omnivorous extends Protozoan {
     public Omnivorous(int weight) {
         super(weight);
         this.Name = Constants.OMNIVOROUS;
+        this.Type = Constants.OMNIVOROUS;
     }
 
     @Override
     public boolean canEat(Specialization other) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String type = other.getType();
+
+        return (type.equalsIgnoreCase(Constants.PLANT)
+                && 1.25 * this.weight > other.getWeight())
+                || ((type.equalsIgnoreCase(Constants.OMNIVOROUS)
+                || type.equalsIgnoreCase(Constants.RAPACIOUS)
+                || type.equalsIgnoreCase(Constants.PHYTOPHAGOUS))
+                && (2 * this.weight > other.getWeight()));
     }
 
     @Override
     public boolean canEat(Particle particle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String type = particle.getType();
+        return type.equalsIgnoreCase(Constants.WATER)
+                || type.equalsIgnoreCase(Constants.O2);
     }
 
     @Override

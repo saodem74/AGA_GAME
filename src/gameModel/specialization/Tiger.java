@@ -5,10 +5,26 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
+
 /**
  *
  * @author trung
  */
-public class Tiger {
-    
+public class Tiger extends Rapacious {
+
+    public Tiger(int weight) {
+        super(weight);
+        this.Name = Constants.TIGER;
+    }
+
+    @Override
+    public boolean canEat(Specialization other) {
+        String type = other.getType();
+
+        return (type.equalsIgnoreCase(Constants.OMNIVOROUS)
+                || type.equalsIgnoreCase(Constants.RAPACIOUS)
+                || type.equalsIgnoreCase(Constants.PHYTOPHAGOUS))
+                && (2 * this.weight > other.getWeight());
+    }
 }
