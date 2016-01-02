@@ -5,6 +5,8 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
+
 /**
  *
  * @author trung
@@ -13,8 +15,8 @@ public abstract class SimplePlant extends Specialization {
 
     public SimplePlant(int weight) {
         super(weight);
-        this.Type = "Plant";
-        this.Name = "SimplePlant";
+        this.Type = Constants.PLANT;
+        this.Name = Constants.PLANT;
     }
 
     @Override

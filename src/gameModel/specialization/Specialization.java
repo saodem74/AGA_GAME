@@ -6,6 +6,7 @@
 package gameModel.specialization;
 
 import gameModel.particles.Particle;
+import Utils.Constants;
 
 /**
  *
@@ -13,11 +14,19 @@ import gameModel.particles.Particle;
  */
 public abstract class Specialization {
 
-    protected String Type = "Specialization";
-    protected String Name = "Specialization";
+    protected String Type = Constants.SPECIALIZATION;
+    protected String Name = Constants.SPECIALIZATION;
     protected int weight = 0;
 
     public Specialization(int weight) {
+        this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

@@ -5,6 +5,7 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
 import gameModel.particles.Particle;
 
 /**
@@ -15,7 +16,7 @@ public class Moss extends SimplePlant {
 
     public Moss(int weight) {
         super(weight);
-        this.Name = "Moss";
+        this.Name = Constants.MOSS;
     }
 
     @Override
@@ -25,7 +26,10 @@ public class Moss extends SimplePlant {
 
     @Override
     public boolean canEat(Particle particle) {
-        return true;
+        String type = particle.getType();
+        return type.equalsIgnoreCase(Constants.WATER)
+                || type.equalsIgnoreCase(Constants.CO2)
+                || type.equalsIgnoreCase(Constants.LIGHT);
     }
 
     @Override
@@ -35,7 +39,7 @@ public class Moss extends SimplePlant {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.Name;
     }
 
 }

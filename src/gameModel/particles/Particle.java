@@ -5,6 +5,7 @@
  */
 package gameModel.particles;
 
+import Utils.Constants;
 import java.awt.Point;
 
 /**
@@ -15,7 +16,7 @@ public class Particle {
 
     private Point position;
     protected String path_img;
-    protected String Type = "Particle";
+    protected String Type = Constants.PARTICLE;
 
     public Particle(Point position, String path) {
         this.position = position;

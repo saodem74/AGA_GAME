@@ -5,6 +5,8 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
+
 /**
  *
  * @author trung
@@ -13,8 +15,8 @@ public abstract class Protozoan extends Specialization {
 
     public Protozoan(int weight) {
         super(weight);
-        this.Type = "Animal";
-        this.Name = "Protozoan";
+        this.Type = Constants.PROTOZOAN;
+        this.Name = Constants.PROTOZOAN;
     }
 
     @Override

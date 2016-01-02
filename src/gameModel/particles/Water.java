@@ -5,6 +5,7 @@
  */
 package gameModel.particles;
 
+import Utils.Constants;
 import java.awt.Point;
 
 /**
@@ -16,6 +17,6 @@ public class Water extends Particle {
     public Water(Point position, String path) {
         super(position, path);
         this.path_img = path;
-        this.Type = "Water";
+        this.Type = Constants.WATER;
     }
 }

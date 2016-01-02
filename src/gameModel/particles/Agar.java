@@ -5,6 +5,7 @@
  */
 package gameModel.particles;
 
+import Utils.Constants;
 import java.awt.Point;
 
 /**
@@ -16,6 +17,6 @@ public class Agar extends Particle {
     public Agar(Point position, String path) {
         super(position, path);
         this.path_img = path;
-        this.Type = "Agar";
+        this.Type = Constants.AGAR;
     }
 }

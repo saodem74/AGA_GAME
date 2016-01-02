@@ -5,6 +5,7 @@
  */
 package gameModel.particles;
 
+import Utils.Constants;
 import java.awt.Point;
 
 /**
@@ -16,7 +17,7 @@ public class CO2 extends Gas {
     public CO2(Point position, String path) {
         super(position, path);
         this.path_img = path;
-        this.Type = "CO2";
+        this.Type = Constants.CO2;
     }
 
 }

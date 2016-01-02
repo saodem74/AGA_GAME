@@ -5,6 +5,7 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
 import gameModel.particles.Particle;
 
 /**
@@ -15,12 +16,24 @@ public class Predator extends SimplePlant {
 
     public Predator(int weight) {
         super(weight);
-        this.Name = "Predator";
+        this.Name = Constants.PREDATOR;
     }
 
     @Override
     public boolean canEat(Specialization other) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return other.getType().equalsIgnoreCase(Constants.PROTOZOAN)
+                && (this.weight > 2 * other.getWeight());
+    }
+
+    @Override
+    public boolean canEat(Particle particle) {
+
+        String type = particle.getType();
+
+        return type.equalsIgnoreCase(Constants.WATER)
+                || type.equalsIgnoreCase(Constants.CO2)
+                || type.equalsIgnoreCase(Constants.LIGHT);
     }
 
     @Override
@@ -31,11 +44,6 @@ public class Predator extends SimplePlant {
     @Override
     public String getName() {
         return this.Name;
-    }
-
-    @Override
-    public boolean canEat(Particle particle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

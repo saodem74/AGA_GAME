@@ -5,6 +5,7 @@
  */
 package gameModel.particles;
 
+import Utils.Constants;
 import java.awt.Point;
 
 /**
@@ -16,6 +17,6 @@ public class Light extends Particle {
     public Light(Point position, String path) {
         super(position, path);
         this.path_img = path;
-        this.Type = "Light";
+        this.Type = Constants.LIGHT;
     }
 }

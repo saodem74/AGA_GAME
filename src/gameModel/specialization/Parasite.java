@@ -5,10 +5,43 @@
  */
 package gameModel.specialization;
 
+import Utils.Constants;
+import gameModel.particles.Particle;
+
 /**
  *
  * @author trung
  */
-public class Parasite {
-    
+public class Parasite extends SimplePlant {
+
+    public Parasite(int weight) {
+        super(weight);
+        this.Name = Constants.PARASITE;
+    }
+
+    @Override
+    public boolean canEat(Specialization other) {
+        return other.getType().equalsIgnoreCase(Constants.PLANT)
+                && (1.5 * this.weight > other.getWeight());
+    }
+
+    @Override
+    public boolean canEat(Particle particle) {
+        String type = particle.getType();
+
+        return type.equalsIgnoreCase(Constants.WATER)
+                || type.equalsIgnoreCase(Constants.CO2)
+                || type.equalsIgnoreCase(Constants.LIGHT);
+    }
+
+    @Override
+    public void produceGas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
