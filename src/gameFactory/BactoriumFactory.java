@@ -34,7 +34,6 @@ public class BactoriumFactory extends SpriteGroup {
 
         collider = new HeroCollider();
         collider.setCollisionGroup(this, this);
-
     }
 
     public void setPrFac(ParticleFactory prFac) {
