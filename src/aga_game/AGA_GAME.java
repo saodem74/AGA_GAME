@@ -45,10 +45,10 @@ public class AGA_GAME extends Game{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
          // make font
-        font = fontManager.getFont(getImages("font.png", 20, 3),
-                                   " !            .,0123" +
-                                   "456789:   -? ABCDEFG" +
-                                   "HIJKLMNOPQRSTUVWXYZ ");
+//        font = fontManager.getFont(getImages("font.png", 20, 3),
+//                                   " !            .,0123" +
+//                                   "456789:   -? ABCDEFG" +
+//                                   "HIJKLMNOPQRSTUVWXYZ ");
     }
 
     @Override
