@@ -8,7 +8,9 @@ package aga_game;
 import com.golden.gamedev.Game;
 import com.golden.gamedev.GameLoader;
 import com.golden.gamedev.object.Background;
+import com.golden.gamedev.object.background.ColorBackground;
 import com.golden.gamedev.object.background.ImageBackground;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
@@ -36,17 +38,22 @@ public class AGA_GAME extends Game{
 
     @Override
     public void initResources() {
-        //background = new ImageBackground(getImage("background2.jpg"), WIDTH_BACKBROUND, HEIGHT_BACKGROUND);
+        //background = new ColorBackground(Color.GRAY, 1024, 768);
+        background = new ImageBackground(getImage("../Images/background2.jpg"), WIDTH_BACKBROUND, HEIGHT_BACKGROUND);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(long l) {
+    public void update(long elapsedTime) {
+        // update background
+        background.update(elapsedTime);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void render(Graphics2D gd) {
+    public void render(Graphics2D g) {
+        // rend background
+        background.render(g);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
