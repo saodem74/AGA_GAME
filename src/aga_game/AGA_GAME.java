@@ -10,12 +10,8 @@ import Utils.Constants;
 import com.golden.gamedev.Game;
 import com.golden.gamedev.GameLoader;
 import com.golden.gamedev.object.Background;
-<<<<<<< HEAD
-import com.golden.gamedev.object.GameFont;
-=======
 import com.golden.gamedev.object.Sprite;
 import com.golden.gamedev.object.SpriteGroup;
->>>>>>> dai
 import com.golden.gamedev.object.background.ColorBackground;
 import com.golden.gamedev.object.background.ImageBackground;
 import gameFactory.ParticleFactory;

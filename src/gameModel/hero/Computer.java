@@ -22,7 +22,7 @@ public class Computer extends Bacterium {
     public Computer() {
         RandSize();
         BufferedImage image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        this.setImage(image);
+        
         Graphics2D graphics = (Graphics2D) image.getGraphics();
         graphics.setColor(Color.YELLOW);
         graphics.fillOval(0, 0, this.getWidth(), this.getHeight());
@@ -30,6 +30,7 @@ public class Computer extends Bacterium {
         this.setSpeed(0, 0);
         initPosSpeed();
         this.setSpecialization(new BasicBacterium(this.width));
+        this.setImage(image);
     }
 
     @Override
@@ -79,7 +80,7 @@ public class Computer extends Bacterium {
         int H = this.getHeight() + 5;
         BufferedImage image_ = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D) image_.getGraphics();
-        graphics.setColor(Color.BLUE);
+        graphics.setColor(Color.YELLOW);
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
     }

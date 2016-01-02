@@ -47,6 +47,12 @@ public class BactoriumFactory extends SpriteGroup {
         }
     }
 
+    @Override
+    public void update(long l) {
+        super.update(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     private class HeroCollider extends BasicCollisionGroup {
 
         public HeroCollider() {
@@ -55,7 +61,7 @@ public class BactoriumFactory extends SpriteGroup {
 
         @Override
         public void collided(Sprite sprite, Sprite sprite1) {
-
+System.out.print("here i am 2");  
             Player player = null;
             Computer computer1 = null, computer2 = null;
 
@@ -103,6 +109,7 @@ public class BactoriumFactory extends SpriteGroup {
 
         @Override
         public void collided(Sprite sprite, Sprite sprite1) {
+            System.out.print("here i am");
             Bacterium br = (Bacterium) sprite;
             Particle pr = (Particle) sprite1;
             if (br.getSpecialization().canEat(pr)) {
