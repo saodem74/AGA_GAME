@@ -10,4 +10,7 @@ package gameModel.particles;
  * @author trung
  */
 public class Particle {
+    
+    
+    
 }
