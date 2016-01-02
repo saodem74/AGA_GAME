@@ -11,11 +11,12 @@ import java.awt.Point;
  *
  * @author trung
  */
-public class Light extends Particle {
+public class O2 extends Gas {
 
-    public Light(Point position, String path) {
+    public O2(Point position, String path) {
         super(position, path);
         this.path_img = path;
-        this.Type = "Light";
+        this.Type = "O2";
     }
+
 }

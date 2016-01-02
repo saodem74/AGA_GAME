@@ -5,10 +5,17 @@
  */
 package gameModel.particles;
 
+import java.awt.Point;
+
 /**
  *
  * @author trung
  */
-public class Gas {
-    
+public class Gas extends Particle {
+
+    public Gas(Point position, String path) {
+        super(position, path);
+        this.path_img = path;
+        this.Type = "Gas";
+    }
 }
