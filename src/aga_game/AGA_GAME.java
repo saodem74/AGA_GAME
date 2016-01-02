@@ -62,6 +62,7 @@ public class AGA_GAME extends Game {
         background.update(elapsedTime);
         heroGroup.update(elapsedTime);
         partGroup.update(elapsedTime);
+        heroGroup.update();
         KeyListener();
     }
 

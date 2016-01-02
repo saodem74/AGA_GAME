@@ -22,6 +22,8 @@ public class BactoriumFactory extends SpriteGroup {
 
     private final Player player;
     private ParticleFactory prFac;
+    private ParticleCollider prCollider;
+    private HeroCollider collider;
 
     public BactoriumFactory(String string) {
         super(string);
@@ -30,15 +32,22 @@ public class BactoriumFactory extends SpriteGroup {
         this.add(player);
         initBoss(20);
 
-        HeroCollider collider = new HeroCollider();
+        collider = new HeroCollider();
         collider.setCollisionGroup(this, this);
 
-        ParticleCollider prCollider = new ParticleCollider();
-        prCollider.setCollisionGroup(this, prFac);
     }
 
     public void setPrFac(ParticleFactory prFac) {
         this.prFac = prFac;
+        prCollider = new ParticleCollider();
+        prCollider.setCollisionGroup(this, prFac);
+
+    }
+
+    
+    public void update() {
+        collider.checkCollision();
+        prCollider.checkCollision();
     }
 
     private void initBoss(int number) {
@@ -109,7 +118,6 @@ System.out.print("here i am 2");
 
         @Override
         public void collided(Sprite sprite, Sprite sprite1) {
-            System.out.print("here i am");
             Bacterium br = (Bacterium) sprite;
             Particle pr = (Particle) sprite1;
             if (br.getSpecialization().canEat(pr)) {
