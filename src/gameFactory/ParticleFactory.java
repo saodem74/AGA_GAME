@@ -16,7 +16,7 @@ public class ParticleFactory extends SpriteGroup{
 
     public ParticleFactory(String string) {
         super(string);
-        initAgar(50);
+        initAgar(100);
     }
 
     private void initAgar(int num){
