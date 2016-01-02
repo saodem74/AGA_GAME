@@ -21,6 +21,8 @@ public class Constants {
 
     public static final String SPECIALIZATION = "SPECIALIZATION";
 
+    public static final String BASIC_BACTERIUM = "BASIC BACTERIUM";
+
     //Простейшее Растений
     public static final String PLANT = "PLANT";
     //Мох
@@ -43,4 +45,12 @@ public class Constants {
     //Буйвол
     public static final String BUFFALO = "BUFFALO";
 
+    public static final int SIZE_HERO = 50;
+
+    public static double SPEED_HERO = 0.3;
+
+    public static final int WIDTH_BACKBROUND = 2560;
+    public static final int HEIGHT_BACKGROUND = 1600;
+
+    public static final int SIZE_AGAR = 20;
 }

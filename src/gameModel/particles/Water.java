@@ -15,7 +15,7 @@ import java.awt.Point;
 public class Water extends Particle {
 
     public Water(Point position) {
-        super(position);
+        this.setPos(position);
         this.Type = Constants.WATER;
     }
 }

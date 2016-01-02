@@ -7,12 +7,13 @@ package gameModel.specialization;
 
 import gameModel.particles.Particle;
 import Utils.Constants;
+import com.golden.gamedev.object.Sprite;
 
 /**
  *
  * @author trung
  */
-public abstract class Specialization {
+public abstract class Specialization extends Sprite{
 
     protected String Type = Constants.SPECIALIZATION;
     protected String Name = Constants.SPECIALIZATION;
