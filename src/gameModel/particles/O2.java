@@ -13,11 +13,10 @@ import java.awt.Point;
  * @author trung
  */
 public class O2 extends Gas {
-
+    
     public O2(Point position) {
         super(position);
-        this.path_img = "";
+        this.path_img = "../Images/O2.jpg";
         this.Type = Constants.O2;
     }
-
 }
