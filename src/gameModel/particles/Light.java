@@ -15,7 +15,7 @@ import java.awt.Point;
 public class Light extends Particle {
 
     public Light(Point position) {
-        super(position);
+        this.setPos(position);
         this.path_img = "";
         this.Type = Constants.LIGHT;
     }

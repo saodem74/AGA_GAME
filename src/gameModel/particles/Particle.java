@@ -6,20 +6,22 @@
 package gameModel.particles;
 
 import Utils.Constants;
+import com.golden.gamedev.object.Sprite;
+import com.golden.gamedev.object.SpriteGroup;
 import java.awt.Point;
 
 /**
  *
  * @author trung
  */
-public class Particle {
+public class Particle extends Sprite {
 
     private Point position;
     protected String path_img;
     protected String Type = Constants.PARTICLE;
 
-    public Particle(Point position) {
-        this.position = position;
+    public void setPos(Point pos) {
+        this.position = pos;
     }
 
     public Point getPosition() {
