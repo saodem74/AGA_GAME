@@ -70,7 +70,7 @@ public class BactoriumFactory extends SpriteGroup {
 
         @Override
         public void collided(Sprite sprite, Sprite sprite1) {
-System.out.print("here i am 2");  
+ 
             Player player = null;
             Computer computer1 = null, computer2 = null;
 
