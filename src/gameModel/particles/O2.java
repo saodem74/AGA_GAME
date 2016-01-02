@@ -19,5 +19,4 @@ public class O2 extends Gas {
         this.path_img = "";
         this.Type = Constants.O2;
     }
-
 }

@@ -22,7 +22,11 @@ public class Predator extends SimplePlant {
     @Override
     public boolean canEat(Specialization other) {
 
-        return other.getType().equalsIgnoreCase(Constants.PROTOZOAN)
+        String type = other.getType();
+
+        return (type.equalsIgnoreCase(Constants.OMNIVOROUS)
+                || type.equalsIgnoreCase(Constants.RAPACIOUS)
+                || type.equalsIgnoreCase(Constants.PHYTOPHAGOUS))
                 && (this.weight > 2 * other.getWeight());
     }
 
