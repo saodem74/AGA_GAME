@@ -33,15 +33,10 @@ public class AGA_GAME extends Game {
 
     private static final Dimension dimesion = new Dimension(1024, 750);
     Background background;
-<<<<<<< HEAD
-    private final int WIDTH_BACKBROUND = 2560;
-    private final int HEIGHT_BACKGROUND = 1600;
-    GameFont font;
-=======
+
     private BactoriumFactory heroGroup;
     private ParticleFactory partGroup;
 
->>>>>>> dai
     /**
      * @param args the command line arguments
      */
