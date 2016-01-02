@@ -14,9 +14,9 @@ import java.awt.Point;
  */
 public class CO2 extends Gas {
 
-    public CO2(Point position, String path) {
-        super(position, path);
-        this.path_img = path;
+    public CO2(Point position) {
+        super(position);
+        this.path_img = "";
         this.Type = Constants.CO2;
     }
 

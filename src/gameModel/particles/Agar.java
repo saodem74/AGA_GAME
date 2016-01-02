@@ -14,9 +14,9 @@ import java.awt.Point;
  */
 public class Agar extends Particle {
 
-    public Agar(Point position, String path) {
-        super(position, path);
-        this.path_img = path;
+    public Agar(Point position) {
+        super(position);
+        this.path_img = "";
         this.Type = Constants.AGAR;
     }
 }

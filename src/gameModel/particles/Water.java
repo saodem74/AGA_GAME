@@ -14,9 +14,8 @@ import java.awt.Point;
  */
 public class Water extends Particle {
 
-    public Water(Point position, String path) {
-        super(position, path);
-        this.path_img = path;
+    public Water(Point position) {
+        super(position);
         this.Type = Constants.WATER;
     }
 }

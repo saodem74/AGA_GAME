@@ -18,9 +18,8 @@ public class Particle {
     protected String path_img;
     protected String Type = Constants.PARTICLE;
 
-    public Particle(Point position, String path) {
+    public Particle(Point position) {
         this.position = position;
-        this.path_img = path;
     }
 
     public Point getPosition() {
