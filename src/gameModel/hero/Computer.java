@@ -9,6 +9,8 @@ package gameModel.hero;
  *
  * @author trung
  */
-public class Computer {
-    
+public class Computer extends Bacterium{
+    public Computer(){
+        
+    }
 }
