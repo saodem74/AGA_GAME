@@ -9,6 +9,17 @@ package gameModel.specialization;
  *
  * @author trung
  */
-public class Protozoan {
-    
+public abstract class Protozoan extends Specialization {
+
+    public Protozoan(int weight) {
+        super(weight);
+        this.Type = "Animal";
+        this.Name = "Protozoan";
+    }
+
+    @Override
+    public String getType() {
+        return this.Type;
+    }
+
 }

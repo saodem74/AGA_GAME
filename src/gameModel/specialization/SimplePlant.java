@@ -9,6 +9,16 @@ package gameModel.specialization;
  *
  * @author trung
  */
-public class SimplePlant {
-    
+public abstract class SimplePlant extends Specialization {
+
+    public SimplePlant(int weight) {
+        super(weight);
+        this.Type = "Plant";
+        this.Name = "SimplePlant";
+    }
+
+    @Override
+    public String getType() {
+        return this.Type;
+    }
 }
