@@ -6,7 +6,6 @@
 package gameModel.hero;
 
 import Utils.Constants;
-import aga_game.AGA_GAME;
 import gameModel.specialization.BasicBacterium;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -22,9 +21,9 @@ public class Computer extends Bacterium {
     public Computer() {
         RandSize();
         BufferedImage image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
-
         Graphics2D graphics = (Graphics2D) image.getGraphics();
         graphics.setColor(Color.YELLOW);
+        fromSizeToScore();
         graphics.fillOval(0, 0, this.getWidth(), this.getHeight());
         this.setLocation(50, 200);
         this.setSpeed(0, 0);
@@ -33,6 +32,14 @@ public class Computer extends Bacterium {
         this.setImage(image);
     }
 
+    private void fromSizeToScore(){
+        if (this.width < Constants.SIZE_HERO) this.score = 0;
+        else {
+            this.score = (this.width - Constants.SIZE_HERO) / 2;
+            upgrade();
+        }
+    }
+    
     @Override
     public boolean isPlayer() {
         return false;

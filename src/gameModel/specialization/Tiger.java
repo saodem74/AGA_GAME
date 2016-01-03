@@ -16,7 +16,7 @@ public class Tiger extends Rapacious {
     public Tiger(int weight) {
         super(weight);
         this.Name = Constants.TIGER;
-        this.Type = Constants.TIGER;
+        //this.Type = Constants.TIGER;
     }
 
     @Override

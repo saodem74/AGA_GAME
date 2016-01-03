@@ -112,7 +112,7 @@ public class AGA_GAME extends Game {
         int heroY = (int) heroGroup.getSprites()[0].getY();
         int screenX = (int) heroGroup.getSprites()[0].getScreenX();
         int screenY = (int) heroGroup.getSprites()[0].getScreenY();
-        font.drawString(g, heroGroup.getBacterium(0).typeToString(), screenX + W / 3, screenY + H / 2);
+        font.drawString(g, heroGroup.getBacterium(0).getSpecialization().getName(), screenX + W / 3, screenY + H / 2);
 
         if (!heroGroup.getSprites()[0].isActive()) {
             gameFinish = true;

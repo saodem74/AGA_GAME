@@ -7,6 +7,7 @@ package gameModel.hero;
 
 import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
+import gameModel.specialization.BasicBacterium;
 import gameModel.specialization.Buffalo;
 import gameModel.specialization.Moss;
 import gameModel.specialization.Omnivorous;
@@ -14,6 +15,8 @@ import gameModel.specialization.Parasite;
 import gameModel.specialization.Predator;
 import gameModel.specialization.Specialization;
 import gameModel.specialization.Tiger;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javafx.util.Pair;
@@ -80,27 +83,79 @@ public abstract class Bacterium extends Sprite {
     public abstract void updateSize();
     
     public void upgrade(){
-        
-        /*
-        if (score >= 20) return ConstantsMOSS;
-        if (score >= 40) return PARASITE;
-        if (score >= 60) return PREDATOR;
-        if (score >= 80) return OMNIVOROUS;
-        if (score >= 100) return BUFFALO;
-        if (score >= 120) return TIGER;
-        return BASIC_BACTERIUM;
-               */
-        if (score >= 20)
-            this.setSpecialization(new Moss(this.width));
-        if (score >= 40)
-            this.setSpecialization(new Parasite(this.width));
-        if (score >= 60)
-            this.setSpecialization(new Predator(this.width));
-        if (score >= 80)
-            this.setSpecialization(new Omnivorous(this.width));
-        if (score >= 100)
-            this.setSpecialization(new Buffalo(this.width));
-        if (score >= 120)
+       
+        if (score >= 50)
+        {
             this.setSpecialization(new Tiger(this.width));
+        }
+        else
+        if (score >= 35)
+        {
+            this.setSpecialization(new Omnivorous(this.width));
+        }
+        else
+        if (score >= 25)
+        {
+            this.setSpecialization(new Buffalo(this.width));
+        }
+        else
+        if (score >= 20)
+        {
+            this.setSpecialization(new Predator(this.width));
+        }
+        else
+        if (score >= 15)
+        {
+            this.setSpecialization(new Parasite(this.width));
+        }
+        else
+        if (score >= 10)
+        {
+            this.setSpecialization(new Moss(this.width));
+        }
+        
+        updateColor();
+    }
+    void updateColor(){
+        BufferedImage image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D graphics = (Graphics2D) image.getGraphics();
+        
+        if (this instanceof Player)
+            graphics.setColor(Color.BLUE);
+        else 
+            graphics.setColor(Color.YELLOW);
+        
+        if (this.getSpecialization() instanceof Tiger)
+        {
+            graphics.setColor(Color.RED);
+        }
+        else
+        if (this.getSpecialization() instanceof Buffalo)
+        {
+            graphics.setColor(Color.PINK);
+        }
+        else
+        if (this.getSpecialization() instanceof Omnivorous)
+        {
+            graphics.setColor(Color.ORANGE);
+        }
+        else
+        if (this.getSpecialization() instanceof Predator)
+        {
+            graphics.setColor(Color.black);
+        }
+        else
+        if (this.getSpecialization() instanceof Parasite)
+        {
+            graphics.setColor(Color.magenta);
+        }
+        else
+        if (this.getSpecialization() instanceof Moss)
+        {
+            graphics.setColor(Color.CYAN);
+        }
+        
+        graphics.fillOval(0, 0, this.getWidth(), this.getHeight());
+        this.setImage(image);
     }
 }
