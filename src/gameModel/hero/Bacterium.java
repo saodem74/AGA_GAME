@@ -123,17 +123,17 @@ public abstract class Bacterium extends Sprite {
         }
 
         if (this.getSpecialization() instanceof Tiger) {
-            graphics.setColor(Color.RED);
-        } else if (this.getSpecialization() instanceof Buffalo) {
-            graphics.setColor(Color.PINK);
+            graphics.setColor(Color.decode("#880E4F"));
         } else if (this.getSpecialization() instanceof Omnivorous) {
-            graphics.setColor(Color.ORANGE);
+            graphics.setColor(Color.decode("#D81B60"));
+        } else if (this.getSpecialization() instanceof Buffalo) {
+            graphics.setColor(Color.decode("#F06292"));
         } else if (this.getSpecialization() instanceof Predator) {
-            graphics.setColor(Color.black);
+            graphics.setColor(Color.decode("#1B5E20"));
         } else if (this.getSpecialization() instanceof Parasite) {
-            graphics.setColor(Color.magenta);
+            graphics.setColor(Color.decode("#43A047"));
         } else if (this.getSpecialization() instanceof Moss) {
-            graphics.setColor(Color.CYAN);
+            graphics.setColor(Color.decode("#81C784"));
         }
 
         graphics.fillOval(0, 0, this.getWidth(), this.getHeight());
