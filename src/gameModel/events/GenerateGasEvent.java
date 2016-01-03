@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package gameModel.events;
-
 import java.util.EventObject;
 
 /**
