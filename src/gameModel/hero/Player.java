@@ -46,6 +46,7 @@ public class Player extends Bacterium {
 
     @Override
     public void updateSize() {
+        this.updateSpeed();
         int W = this.getWidth() + Constants.SIZE_INCREASED;
         int H = this.getHeight() + Constants.SIZE_INCREASED;
         BufferedImage image_ = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
@@ -53,6 +54,7 @@ public class Player extends Bacterium {
         graphics.setColor(Color.BLUE);
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
+        this.getSpecialization().setWeight(this.getWidth());
     }
 
 }

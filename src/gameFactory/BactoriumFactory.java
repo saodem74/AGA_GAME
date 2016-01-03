@@ -12,7 +12,6 @@ import gameModel.hero.Bacterium;
 import gameModel.hero.Computer;
 import gameModel.hero.Player;
 import gameModel.particles.Particle;
-import java.util.Random;
 
 /**
  *
@@ -23,14 +22,14 @@ public class BactoriumFactory extends SpriteGroup {
     private final Player player;
     private ParticleFactory prFac;
     private ParticleCollider prCollider;
-    private HeroCollider collider;
+    private final HeroCollider collider;
 
     public BactoriumFactory(String string) {
         super(string);
 
         player = new Player();
         this.add(player);
-        initBoss(50);
+        initBoss(20);
 
         collider = new HeroCollider();
         collider.setCollisionGroup(this, this);

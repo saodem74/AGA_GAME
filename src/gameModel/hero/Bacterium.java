@@ -5,6 +5,7 @@
  */
 package gameModel.hero;
 
+import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
 import gameModel.specialization.Specialization;
 import java.awt.Point;
@@ -17,8 +18,8 @@ import javafx.util.Pair;
  */
 public abstract class Bacterium extends Sprite {
 
-    private double speedX;
-    private double speedY;
+    protected double speedX = Constants.SPEED_HERO;
+    protected double speedY = Constants.SPEED_HERO;
     protected Specialization specialization;
     protected int score;
 
@@ -36,6 +37,16 @@ public abstract class Bacterium extends Sprite {
 
     public void setSpeedY(double spY) {
         speedY = spY;
+    }
+
+    public void setSpeedXY(double spX, double spY) {
+        this.speedX = spX;
+        this.speedY = spY;
+    }
+
+    public void updateSpeed() {
+        speedX = speedX - speedX * Constants.PERCENT_SPEED;
+        speedY = speedY - speedY * Constants.PERCENT_SPEED;
     }
 
     public abstract boolean isPlayer();

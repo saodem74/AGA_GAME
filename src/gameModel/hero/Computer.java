@@ -79,5 +79,6 @@ public class Computer extends Bacterium {
         graphics.setColor(Color.YELLOW);
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
+        this.getSpecialization().setWeight(this.getWidth());
     }
 }

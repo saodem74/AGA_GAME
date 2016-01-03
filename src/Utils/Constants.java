@@ -60,7 +60,7 @@ public class Constants {
 
     public static final int SIZE_INCREASED = 2;
 
-    public static final double PERCENT_SPEED = 0.1;
+    public static final double PERCENT_SPEED = 0.05;
 
     /* return  0  - sprite is inside
      -1  - sprite touched the top
@@ -122,7 +122,7 @@ public class Constants {
         }
 
         spX = pow(-1.0, rd.nextInt(2)) * rd.nextDouble() * sp;
-        spY = pow(-1.0, rd.nextInt(2)) * sqrt(sp * sp + spX * spX);
+        spY = pow(-1.0, rd.nextInt(2)) * sqrt(sp * sp - spX * spX);
 
         sprite.setSpeed(spX, spY);
     }
