@@ -51,7 +51,13 @@ public class BactoriumFactory extends SpriteGroup {
 
     public void update() {
         collider.checkCollision();
-        prCollider.checkCollision();
+
+        try {
+
+            prCollider.checkCollision();
+        } catch (ArrayIndexOutOfBoundsException exc) {
+            System.err.println(exc.toString());
+        }
     }
 
     private void initBoss(int number) {
@@ -138,10 +144,14 @@ public class BactoriumFactory extends SpriteGroup {
             Particle pr = (Particle) sprite1;
             if (br.getSpecialization().canEat(pr)) {
                 pr.setActive(false);
-                BactoriumFactory.this.prFac.updateNumberNormal();
+
                 BactoriumFactory.this.prFac.remove(pr);
                 boolean x = !(pr.getType().equalsIgnoreCase(Constants.CO2)
                         || pr.getType().equalsIgnoreCase(Constants.O2));
+
+                if (x) {
+                    BactoriumFactory.this.prFac.updateNumberNormal();
+                }
 
                 br.setScore(br.getScore() + (x ? 1 : 0));
                 br.updateSize(x);

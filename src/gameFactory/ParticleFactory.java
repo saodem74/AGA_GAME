@@ -58,6 +58,9 @@ public final class ParticleFactory extends SpriteGroup {
     }
 
     public void initAgar(int num) {
+
+        System.out.println("initAgar + " + num);
+
         for (int i = 0; i < num; i++) {
             this.add(new Agar());
         }
@@ -66,6 +69,9 @@ public final class ParticleFactory extends SpriteGroup {
     }
 
     private void initLight(int num) {
+
+        System.out.println("initLight + " + num);
+
         for (int i = 0; i < num; i++) {
             this.add(new Light());
         }
@@ -74,6 +80,9 @@ public final class ParticleFactory extends SpriteGroup {
     }
 
     private void initWater(int num) {
+
+        System.out.println("initWater + " + num);
+
         for (int i = 0; i < num; i++) {
             this.add(new Water());
         }
