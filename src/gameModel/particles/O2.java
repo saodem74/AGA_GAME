@@ -24,12 +24,11 @@ import javax.swing.ImageIcon;
 public class O2 extends Gas {
 
     public O2(Point pos) {
-        AnimatedSprite aniBooms;
+        
         this.Type = Constants.O2;
         BufferedImage image;
         try {
-            //image[ite] = ImageIO.read(new File(model.getPlayer2().getList().get(ite-_count1).getPic()));
-            image = ImageIO.read(new File("Images\\o2.jpg"));
+            image = ImageIO.read(new File("Images/o2.png"));
             this.setImage(image);
         } catch (IOException ex) {
         }

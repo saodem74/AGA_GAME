@@ -24,8 +24,7 @@ public class CO2 extends Gas {
         this.Type = Constants.CO2;
         BufferedImage image;
         try {
-            //image[ite] = ImageIO.read(new File(model.getPlayer2().getList().get(ite-_count1).getPic()));
-            image = ImageIO.read(new File("Images\\co2.png"));
+            image = ImageIO.read(new File("Images/co2.png"));
             this.setImage(image);
         } catch (IOException ex) {
         }
