@@ -30,9 +30,6 @@ public class BactoriumFactory extends SpriteGroup {
 
         player = new Player();
         this.add(player);
-        player.getSpecialization().addGasListener(prFac.getObserver());
-
-        initBoss(20);
 
         collider = new HeroCollider();
         collider.setCollisionGroup(this, this);
@@ -46,6 +43,9 @@ public class BactoriumFactory extends SpriteGroup {
         this.prFac = prFac;
         prCollider = new ParticleCollider();
         prCollider.setCollisionGroup(this, prFac);
+
+        player.getSpecialization().addGasListener(prFac.getObserver());
+        initBoss(20);
     }
 
     public void update() {
@@ -142,7 +142,7 @@ public class BactoriumFactory extends SpriteGroup {
 
                 }
                 //System.out.print(BactoriumFactory.this.prFac.getSize() + " -> ");
-                
+
                 if (BactoriumFactory.this.prFac.getSize() < 80) {
                     BactoriumFactory.this.prFac.randParticle(20);
                 }
