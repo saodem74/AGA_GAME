@@ -62,7 +62,7 @@ public class Constants {
 
     public static final int SIZE_INCREASED = 2;
 
-    public static final double PERCENT_SPEED = 0.05;
+    public static final double PERCENT_SPEED = 0.04;
 
     /* return  0  - sprite is inside
      -1  - sprite touched the top
