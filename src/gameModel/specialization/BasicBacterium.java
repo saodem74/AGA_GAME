@@ -23,6 +23,7 @@ public class BasicBacterium extends Specialization {
 
     @Override
     public boolean canEat(Specialization other) {
+        
         return this.getType().equalsIgnoreCase(other.getType())
                 && this.weight > other.weight;
     }
