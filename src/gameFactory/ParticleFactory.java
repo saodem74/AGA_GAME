@@ -5,9 +5,12 @@
  */
 package gameFactory;
 
+import com.golden.gamedev.object.AnimatedSprite;
 import com.golden.gamedev.object.SpriteGroup;
 import gameModel.particles.Agar;
+import gameModel.particles.CO2;
 import gameModel.particles.Light;
+import gameModel.particles.O2;
 import gameModel.particles.Water;
 import java.util.Random;
 
@@ -49,4 +52,5 @@ public final class ParticleFactory extends SpriteGroup {
             this.add(new Water());
         }
     }
+    
 }

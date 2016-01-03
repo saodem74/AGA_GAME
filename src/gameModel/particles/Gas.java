@@ -19,4 +19,7 @@ public class Gas extends Particle {
         this.path_img = "";
         this.Type = Constants.GAS;
     }
+    public Gas(){
+        
+    }
 }
