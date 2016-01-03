@@ -40,7 +40,6 @@ public class BactoriumFactory extends SpriteGroup {
         this.prFac = prFac;
         prCollider = new ParticleCollider();
         prCollider.setCollisionGroup(this, prFac);
-
     }
 
     public void update() {
@@ -126,6 +125,9 @@ public class BactoriumFactory extends SpriteGroup {
                 pr.setActive(false);
                 br.updateSize();
                 BactoriumFactory.this.prFac.remove(pr);
+                if (BactoriumFactory.this.prFac.getSize() < 80) {
+                    BactoriumFactory.this.prFac.randParticle(60);
+                }
             }
         }
 

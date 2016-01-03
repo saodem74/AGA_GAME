@@ -9,18 +9,27 @@ import com.golden.gamedev.object.SpriteGroup;
 import gameModel.particles.Agar;
 import gameModel.particles.Light;
 import gameModel.particles.Water;
+import java.util.Random;
 
 /**
  *
  * @author trung
  */
-public class ParticleFactory extends SpriteGroup {
+public final class ParticleFactory extends SpriteGroup {
 
     public ParticleFactory(String string) {
         super(string);
-        initAgar(100);
-        initLight(100);
-        initWater(100);
+        initAgar(50);
+        initLight(50);
+        initWater(50);
+    }
+
+    public void randParticle(int number) {
+
+        Random rand = new Random();
+        initAgar(rand.nextInt(number / 3));
+        initLight(rand.nextInt(number / 3));
+        initWater(rand.nextInt(number / 3));
     }
 
     public void initAgar(int num) {
@@ -28,13 +37,15 @@ public class ParticleFactory extends SpriteGroup {
             this.add(new Agar());
         }
     }
-    private void initLight(int num){
-        for (int i = 0; i < num; i++){
+
+    private void initLight(int num) {
+        for (int i = 0; i < num; i++) {
             this.add(new Light());
         }
     }
-    private void initWater(int num){
-        for (int i = 0; i < num; i++){
+
+    private void initWater(int num) {
+        for (int i = 0; i < num; i++) {
             this.add(new Water());
         }
     }
