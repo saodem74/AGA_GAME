@@ -5,7 +5,11 @@
  */
 package gameFactory;
 
+<<<<<<< HEAD
 import Utils.Constants;
+=======
+import com.golden.gamedev.object.AnimatedSprite;
+>>>>>>> Lam
 import com.golden.gamedev.object.SpriteGroup;
 import gameModel.events.GenerateGasEvent;
 import gameModel.events.GenerateGasListener;
@@ -61,6 +65,7 @@ public final class ParticleFactory extends SpriteGroup {
             this.add(new Water());
         }
     }
+<<<<<<< HEAD
 
     private void initGas(String type) {
         if (type.equalsIgnoreCase(Constants.CO2)) {
@@ -79,4 +84,7 @@ public final class ParticleFactory extends SpriteGroup {
 
     }
 
+=======
+    
+>>>>>>> Lam
 }
