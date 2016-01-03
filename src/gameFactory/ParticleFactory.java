@@ -46,7 +46,6 @@ public final class ParticleFactory extends SpriteGroup {
     public void initAgar(int num) {
         for (int i = 0; i < num; i++) {
             this.add(new Agar());
-
         }
     }
 
@@ -62,11 +61,11 @@ public final class ParticleFactory extends SpriteGroup {
         }
     }
 
-    private void initGas(String type) {
-        if (type.equalsIgnoreCase(Constants.CO2)) {
-            this.add(new CO2());
+    private void initGas(GenerateGasEvent event) {
+        if (event.getType().equalsIgnoreCase(Constants.CO2)) {
+            this.add(new CO2(event.getPos()));
         } else {
-            this.add(new O2());
+            this.add(new O2(event.getPos()));
         }
     }
 
@@ -74,7 +73,7 @@ public final class ParticleFactory extends SpriteGroup {
 
         @Override
         public void generateGas(GenerateGasEvent event) {
-            initGas(event.getType());
+            initGas(event);
         }
 
     }

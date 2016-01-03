@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package gameModel.events;
+
+import java.awt.Point;
 import java.util.EventObject;
 
 /**
@@ -13,10 +15,12 @@ import java.util.EventObject;
 public class GenerateGasEvent extends EventObject {
 
     private String type = "";
+    private Point pos;
 
-    public GenerateGasEvent(Object source, String type) {
+    public GenerateGasEvent(Object source, String type, Point pos) {
         super(source);
         this.type = type;
+        this.pos = pos;
     }
 
     public void setType(String type) {
@@ -25,6 +29,10 @@ public class GenerateGasEvent extends EventObject {
 
     public String getType() {
         return type;
+    }
+
+    public Point getPos() {
+        return pos;
     }
 
 }

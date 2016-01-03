@@ -8,6 +8,7 @@ package gameModel.specialization;
 import Utils.Constants;
 import gameModel.events.GenerateGasEvent;
 import gameModel.particles.Particle;
+import java.awt.Point;
 
 /**
  *
@@ -23,7 +24,7 @@ public class BasicBacterium extends Specialization {
 
     @Override
     public boolean canEat(Specialization other) {
-        
+
         return this.getType().equalsIgnoreCase(other.getType())
                 && this.weight > other.weight;
     }
@@ -37,11 +38,13 @@ public class BasicBacterium extends Specialization {
     }
 
     @Override
-    public void generateGas() {
+    public void generateGas(Point pos) {
 
         if (gasListener == null) {
-            System.out.println("gasListener null");
-            gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2));
+            System.out.println("gasListener null Basic");
+        } else {
+            System.out.println("Basic generate CO2");
+            gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2, pos));
         }
     }
 

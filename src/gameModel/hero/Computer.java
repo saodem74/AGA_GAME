@@ -9,6 +9,7 @@ import Utils.Constants;
 import gameModel.specialization.BasicBacterium;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
@@ -32,14 +33,15 @@ public class Computer extends Bacterium {
         this.setImage(image);
     }
 
-    private void fromSizeToScore(){
-        if (this.width < Constants.SIZE_HERO) this.score = 0;
-        else {
+    private void fromSizeToScore() {
+        if (this.width < Constants.SIZE_HERO) {
+            this.score = 0;
+        } else {
             this.score = (this.width - Constants.SIZE_HERO) / 2;
             upgrade();
         }
     }
-    
+
     @Override
     public boolean isPlayer() {
         return false;
@@ -87,8 +89,7 @@ public class Computer extends Bacterium {
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
         this.getSpecialization().setWeight(this.getWidth());
-        this.specialization.generateGas();
+        this.specialization.generateGas(new Point((int) this.getX(), (int) this.getY()));
     }
-    
-    
+
 }

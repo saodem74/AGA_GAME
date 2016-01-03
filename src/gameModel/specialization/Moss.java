@@ -6,7 +6,9 @@
 package gameModel.specialization;
 
 import Utils.Constants;
+import gameModel.events.GenerateGasEvent;
 import gameModel.particles.Particle;
+import java.awt.Point;
 
 /**
  *
@@ -31,11 +33,20 @@ public class Moss extends SimplePlant {
         String type = particle.getType();
         return type.equalsIgnoreCase(Constants.WATER)
                 || type.equalsIgnoreCase(Constants.CO2)
-                || type.equalsIgnoreCase(Constants.LIGHT) ;
-               
+                || type.equalsIgnoreCase(Constants.LIGHT);
+
     }
 
-    
+    @Override
+    public void generateGas(Point pos) {
+
+        if (gasListener == null) {
+            System.out.println("gasListener null Moss");
+        } else {
+            gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2, pos));
+        }
+    }
+
     @Override
     public String getName() {
         return this.Name;

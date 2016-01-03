@@ -9,6 +9,7 @@ import gameModel.particles.Particle;
 import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
 import gameModel.events.GenerateGasListener;
+import java.awt.Point;
 
 /**
  *
@@ -41,7 +42,7 @@ public abstract class Specialization extends Sprite {
 
     public abstract boolean canEat(Particle particle);
 
-    public abstract void generateGas();
+    public abstract void generateGas(Point pos);
 
     public abstract String getType();
 

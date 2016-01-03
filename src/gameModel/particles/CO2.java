@@ -20,25 +20,17 @@ import javax.imageio.ImageIO;
  */
 public class CO2 extends Gas {
 
-    public CO2() {
+    public CO2(Point pos) {
         this.Type = Constants.CO2;
         BufferedImage image;
         try {
             //image[ite] = ImageIO.read(new File(model.getPlayer2().getList().get(ite-_count1).getPic()));
-            image = ImageIO.read(new File("Images\\kiss.gif"));
+            image = ImageIO.read(new File("Images\\co2.png"));
             this.setImage(image);
         } catch (IOException ex) {
         }
-        Random rd = new Random();
-        int posX = rd.nextInt(Constants.WIDTH_BACKBROUND) - Constants.SIZE_AGAR;
-        int posY = rd.nextInt(Constants.HEIGHT_BACKGROUND) - Constants.SIZE_AGAR;
-        if (posX < 0) {
-            posX = 0;
-        }
-        if (posY < 0) {
-            posY = 0;
-        }
-        this.setLocation(posX, posY);
+
+        this.setLocation(pos.x, pos.y);
     }
 
 }

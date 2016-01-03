@@ -9,6 +9,7 @@ import Utils.Constants;
 import gameModel.specialization.BasicBacterium;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 /**
@@ -47,7 +48,7 @@ public class Player extends Bacterium {
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
         this.getSpecialization().setWeight(this.getWidth());
-        this.specialization.generateGas();
+        this.specialization.generateGas(new Point((int)this.getX(), (int)this.getY()));
     }
 
     

@@ -7,6 +7,7 @@ package gameModel.specialization;
 
 import Utils.Constants;
 import gameModel.events.GenerateGasEvent;
+import java.awt.Point;
 
 /**
  *
@@ -26,7 +27,12 @@ public abstract class SimplePlant extends Specialization {
     }
 
     @Override
-    public void generateGas() {
-       // gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2));
+    public void generateGas(Point pos) {
+        
+        if (gasListener == null) {
+            System.out.println("gasListener null Plant");
+        } else {
+            gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2, pos));
+        }
     }
 }

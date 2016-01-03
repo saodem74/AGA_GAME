@@ -7,6 +7,7 @@ package gameModel.specialization;
 
 import Utils.Constants;
 import gameModel.events.GenerateGasEvent;
+import java.awt.Point;
 
 /**
  *
@@ -26,8 +27,13 @@ public abstract class Protozoan extends Specialization {
     }
 
     @Override
-    public void generateGas() {
-        //gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2));
+    public void generateGas(Point pos) {
+        if (gasListener == null) {
+            System.out.println("gasListener null Protozoan");
+        } else {
+            System.out.println("Protozoan generate CO2");
+            gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2, pos));
+        }
     }
 
 }

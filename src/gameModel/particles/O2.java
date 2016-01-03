@@ -23,25 +23,17 @@ import javax.swing.ImageIcon;
  */
 public class O2 extends Gas {
 
-    public O2() {
+    public O2(Point pos) {
         AnimatedSprite aniBooms;
         this.Type = Constants.O2;
         BufferedImage image;
         try {
             //image[ite] = ImageIO.read(new File(model.getPlayer2().getList().get(ite-_count1).getPic()));
-            image = ImageIO.read(new File("..\\Images\\co.png"));
+            image = ImageIO.read(new File("Images\\o2.jpg"));
             this.setImage(image);
         } catch (IOException ex) {
         }
-        Random rd = new Random();
-        int posX = rd.nextInt(Constants.WIDTH_BACKBROUND) - Constants.SIZE_AGAR;
-        int posY = rd.nextInt(Constants.HEIGHT_BACKGROUND) - Constants.SIZE_AGAR;
-        if (posX < 0) {
-            posX = 0;
-        }
-        if (posY < 0) {
-            posY = 0;
-        }
-        this.setLocation(posX, posY);
+        
+        this.setLocation(pos.x, pos.y);
     }
 }
