@@ -83,7 +83,7 @@ public class AGA_GAME extends Game {
         if (gameFinish) {
             return;
         }
-        
+
         // rend background
         background.render(g);
         heroGroup.render(g);
@@ -100,23 +100,25 @@ public class AGA_GAME extends Game {
     private void KeyListener() {
         double speedX = 0, speedY = 0;
 
+        Player player = (Player) heroGroup.getSprites()[0];
+
         int outside = Constants.outsideBackground(heroGroup.getSprites()[0]);
 
         if (keyDown(KeyEvent.VK_LEFT)
                 && !(outside == -4 || outside == -41 || outside == -34)) {
-            speedX = -Constants.SPEED_HERO;
+            speedX = -player.getSpeedX();
         }
         if (keyDown(KeyEvent.VK_RIGHT)
                 && !(outside == -2 || outside == -12 || outside == -23)) {
-            speedX = Constants.SPEED_HERO;
+            speedX = player.getSpeedX();
         }
         if (keyDown(KeyEvent.VK_UP)
                 && !(outside == -1 || outside == -12 || outside == -41)) {
-            speedY = -Constants.SPEED_HERO;
+            speedY = -player.getSpeedY();
         }
         if (keyDown(KeyEvent.VK_DOWN)
                 && !(outside == -3 || outside == -23 || outside == -34)) {
-            speedY = Constants.SPEED_HERO;
+            speedY = player.getSpeedY();
         }
 
         heroGroup.getSprites()[0].setSpeed(speedX, speedY);
