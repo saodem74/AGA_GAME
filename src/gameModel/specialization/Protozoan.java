@@ -27,7 +27,7 @@ public abstract class Protozoan extends Specialization {
 
     @Override
     public void generateGas() {
-        gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2));
+        //gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2));
     }
 
 }

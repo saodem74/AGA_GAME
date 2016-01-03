@@ -27,6 +27,6 @@ public abstract class SimplePlant extends Specialization {
 
     @Override
     public void generateGas() {
-        gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2));
+       // gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2));
     }
 }

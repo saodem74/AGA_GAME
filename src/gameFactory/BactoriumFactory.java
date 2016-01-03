@@ -99,19 +99,23 @@ public class BactoriumFactory extends SpriteGroup {
                     player.updateSize();
                     player.setScore(player.getScore() + 3);
                     player.upgrade();
-                } else {
-                    player.setActive(false);
+                } else
+                {
+                    if (computer1.getSpecialization().canEat(player.getSpecialization()))
+                        player.setActive(false);
                 }
             } else {
                 if (computer1.getSpecialization().canEat(computer2.getSpecialization())) {
                     computer2.setActive(false);
                     BactoriumFactory.this.remove(computer2);
                     computer1.updateSize();
+                    computer1.upgrade();
 
                 } else if (computer2.getSpecialization().canEat(computer1.getSpecialization())) {
                     computer1.setActive(false);
                     BactoriumFactory.this.remove(computer1);
                     computer2.updateSize();
+                    computer2.upgrade();;
                 }
             }
 
@@ -135,12 +139,9 @@ public class BactoriumFactory extends SpriteGroup {
                 pr.setActive(false);
                 br.updateSize();
                 BactoriumFactory.this.prFac.remove(pr);
-
-                if (br instanceof Player) {
-                    br.setScore(br.getScore() + 1);
-                    br.upgrade();
-
-                }
+                
+                br.setScore(br.getScore() + 1);
+                br.upgrade();
                 //System.out.print(BactoriumFactory.this.prFac.getSize() + " -> ");
 
                 if (BactoriumFactory.this.prFac.getSize() < 80) {

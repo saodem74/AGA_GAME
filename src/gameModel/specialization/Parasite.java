@@ -17,7 +17,7 @@ public class Parasite extends SimplePlant {
     public Parasite(int weight) {
         super(weight);
         this.Name = Constants.PARASITE;
-        this.Type = Constants.PARASITE;
+        //this.Type = Constants.PARASITE;
     }
 
     @Override

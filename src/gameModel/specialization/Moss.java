@@ -17,11 +17,12 @@ public class Moss extends SimplePlant {
     public Moss(int weight) {
         super(weight);
         this.Name = Constants.MOSS;
-        this.Type = Constants.MOSS;
+        //this.Type = Constants.MOSS;
     }
 
     @Override
     public boolean canEat(Specialization other) {
+        //return  other.getType().equalsIgnoreCase(Constants.BASIC_BACTERIUM);    
         return false;
     }
 
@@ -30,10 +31,11 @@ public class Moss extends SimplePlant {
         String type = particle.getType();
         return type.equalsIgnoreCase(Constants.WATER)
                 || type.equalsIgnoreCase(Constants.CO2)
-                || type.equalsIgnoreCase(Constants.LIGHT);
+                || type.equalsIgnoreCase(Constants.LIGHT) ;
+               
     }
 
-
+    
     @Override
     public String getName() {
         return this.Name;

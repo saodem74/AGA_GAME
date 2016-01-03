@@ -16,7 +16,7 @@ public class Buffalo extends Phytophagous {
     public Buffalo(int weight) {
         super(weight);
         this.Name = Constants.BUFFALO;
-        this.Type = Constants.BUFFALO;
+        //this.Type = Constants.BUFFALO;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class O2 extends Gas {
         BufferedImage image;
         try {
             //image[ite] = ImageIO.read(new File(model.getPlayer2().getList().get(ite-_count1).getPic()));
-            image = ImageIO.read(new File("Images\\co.png"));
+            image = ImageIO.read(new File("..\\Images\\co.png"));
             this.setImage(image);
         } catch (IOException ex) {
         }
