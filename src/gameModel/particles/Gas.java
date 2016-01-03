@@ -15,7 +15,7 @@ import java.awt.Point;
 public class Gas extends Particle {
 
     public Gas(Point position) {
-        super(position);
+        this.setPos(position);
         this.path_img = "";
         this.Type = Constants.GAS;
     }

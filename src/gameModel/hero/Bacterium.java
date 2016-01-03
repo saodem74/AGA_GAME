@@ -5,40 +5,48 @@
  */
 package gameModel.hero;
 
+import com.golden.gamedev.object.Sprite;
+import gameModel.specialization.Specialization;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import javafx.util.Pair;
 
 /**
  *
  * @author trung
  */
-public class Bacterium {
-    private Point position;
+public abstract class Bacterium extends Sprite {
+
     private double speedX;
     private double speedY;
-    private int size;
-    
-    public int getSize(){
-        return size;
-    }
-    
-    public double getSpeedX(){
+    protected Specialization specialization;
+    protected int score;
+
+    public double getSpeedX() {
         return speedX;
     }
-    
-    public double getSpeedY(){
+
+    public double getSpeedY() {
         return speedY;
     }
-    
-    public void setSpeedX(double spX){
+
+    public void setSpeedX(double spX) {
         speedX = spX;
     }
-    
-    public void setSpeedY(double spY){
+
+    public void setSpeedY(double spY) {
         speedY = spY;
     }
-    
-    public void upgrade(){
-        
+
+    public abstract boolean isPlayer();
+
+    public Specialization getSpecialization() {
+        return specialization;
     }
+
+    public void setSpecialization(Specialization spez) {
+        this.specialization = spez;
+    }
+
+    public abstract void updateSize();
 }
