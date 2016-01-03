@@ -25,7 +25,7 @@ public class Constants {
 
     public static final String SPECIALIZATION = "SPECIALIZATION";
 
-    public static final String BASIC_BACTERIUM = "BASIC BACTERIUM";
+    public static final String BASIC_BACTERIUM = "BASIC";
 
     //Простейшее Растений
     public static final String PLANT = "PLANT";

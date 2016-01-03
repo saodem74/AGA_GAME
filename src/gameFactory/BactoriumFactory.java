@@ -35,6 +35,10 @@ public class BactoriumFactory extends SpriteGroup {
         collider.setCollisionGroup(this, this);
     }
 
+    public Bacterium getBacterium(int i){
+        return (Bacterium)this.getSprites()[i];
+    }
+    
     public void setPrFac(ParticleFactory prFac) {
         this.prFac = prFac;
         prCollider = new ParticleCollider();
@@ -87,6 +91,7 @@ public class BactoriumFactory extends SpriteGroup {
                     computer1.setActive(false);
                     BactoriumFactory.this.remove(computer1);
                     player.updateSize();
+                    player.setScore(player.getScore() + 3);
                 } else {
                     player.setActive(false);
                 }
@@ -121,6 +126,9 @@ public class BactoriumFactory extends SpriteGroup {
                 pr.setActive(false);
                 br.updateSize();
                 BactoriumFactory.this.prFac.remove(pr);
+                if (br instanceof Player){
+                    br.setScore(br.getScore() + 1);
+                }
             }
         }
 
