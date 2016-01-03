@@ -35,6 +35,7 @@ public final class ParticleFactory extends SpriteGroup {
     public void initAgar(int num) {
         for (int i = 0; i < num; i++) {
             this.add(new Agar());
+            
         }
     }
 

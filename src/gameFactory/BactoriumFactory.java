@@ -135,10 +135,12 @@ public class BactoriumFactory extends SpriteGroup {
                     br.setScore(br.getScore() + 1);
 
                 }
-
+                //System.out.print(BactoriumFactory.this.prFac.getSize() + " -> ");
+                
                 if (BactoriumFactory.this.prFac.getSize() < 80) {
-                    BactoriumFactory.this.prFac.randParticle(60);
+                    BactoriumFactory.this.prFac.randParticle(20);
                 }
+                //System.out.println(BactoriumFactory.this.prFac.getSize());
             }
         }
     }

@@ -74,7 +74,7 @@ public class AGA_GAME extends Game {
     @Override
     public void update(long elapsedTime) {
         // update background
-
+        //System.out.println("here update");
         if (gameFinish) {
             return;
         }
@@ -95,7 +95,7 @@ public class AGA_GAME extends Game {
         if (gameFinish) {
             return;
         }
-
+        //System.out.println("here render");
         // rend background
         background.render(g);
         heroGroup.render(g);
