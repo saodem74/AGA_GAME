@@ -12,6 +12,7 @@ import gameModel.hero.Bacterium;
 import gameModel.hero.Computer;
 import gameModel.hero.Player;
 import gameModel.particles.Particle;
+import java.util.Random;
 
 /**
  *
@@ -60,6 +61,8 @@ public class BactoriumFactory extends SpriteGroup {
 
     private class HeroCollider extends BasicCollisionGroup {
 
+        Random rand = new Random();
+
         public HeroCollider() {
             pixelPerfectCollision = true;
         }
@@ -101,10 +104,12 @@ public class BactoriumFactory extends SpriteGroup {
                     BactoriumFactory.this.remove(computer1);
                     computer2.updateSize();
                 }
+            }
 
+            if (BactoriumFactory.this.getSize() < 10) {
+                initBoss(rand.nextInt(10));
             }
         }
-
     }
 
     private class ParticleCollider extends BasicCollisionGroup {
@@ -125,5 +130,4 @@ public class BactoriumFactory extends SpriteGroup {
         }
 
     }
-
 }

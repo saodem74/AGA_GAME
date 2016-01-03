@@ -92,8 +92,6 @@ public class AGA_GAME extends Game {
         if (!heroGroup.getSprites()[0].isActive()) {
             //finish();
             gameFinish = true;
-
-            return;
         }
     }
 

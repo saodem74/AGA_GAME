@@ -12,15 +12,15 @@ import gameModel.particles.Agar;
  *
  * @author trung
  */
-public class ParticleFactory extends SpriteGroup{
+public class ParticleFactory extends SpriteGroup {
 
     public ParticleFactory(String string) {
         super(string);
         initAgar(100);
     }
 
-    private void initAgar(int num){
-        for (int i = 0; i < num; i++){
+    public void initAgar(int num) {
+        for (int i = 0; i < num; i++) {
             this.add(new Agar());
         }
     }
