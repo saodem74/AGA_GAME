@@ -7,6 +7,7 @@ package gameModel.hero;
 
 import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
+import gameModel.events.GenerateGasListener;
 import gameModel.specialization.BasicBacterium;
 import gameModel.specialization.Buffalo;
 import gameModel.specialization.Moss;
@@ -32,13 +33,14 @@ public abstract class Bacterium extends Sprite {
     protected Specialization specialization;
     protected int score = 0;
 
-    public String typeToString(){
+    public String typeToString() {
         return (this.specialization.getType());
     }
+
     public double getSpeedX() {
         return speedX;
     }
-    
+
     public double getSpeedY() {
         return speedY;
     }
@@ -64,7 +66,6 @@ public abstract class Bacterium extends Sprite {
         this.score = score;
     }
 
-    
     public void updateSpeed() {
         speedX = speedX - speedX * Constants.PERCENT_SPEED;
         speedY = speedY - speedY * Constants.PERCENT_SPEED;
@@ -81,80 +82,60 @@ public abstract class Bacterium extends Sprite {
     }
 
     public abstract void updateSize();
-    
-    public void upgrade(){
-       
-        if (score >= 50)
-        {
+
+    public void upgrade() {
+
+        GenerateGasListener listener = null;
+
+        if (this.getSpecialization() != null) {
+            listener = this.getSpecialization().getListener();
+        }
+
+        if (score >= 50) {
             this.setSpecialization(new Tiger(this.width));
-        }
-        else
-        if (score >= 35)
-        {
+        } else if (score >= 35) {
             this.setSpecialization(new Omnivorous(this.width));
-        }
-        else
-        if (score >= 25)
-        {
+        } else if (score >= 25) {
             this.setSpecialization(new Buffalo(this.width));
-        }
-        else
-        if (score >= 20)
-        {
+        } else if (score >= 20) {
             this.setSpecialization(new Predator(this.width));
-        }
-        else
-        if (score >= 15)
-        {
+        } else if (score >= 15) {
             this.setSpecialization(new Parasite(this.width));
-        }
-        else
-        if (score >= 10)
-        {
+        } else if (score >= 10) {
             this.setSpecialization(new Moss(this.width));
+        }
+
+        if (this.getSpecialization() != null) {
+            this.getSpecialization().addGasListener(listener);
         }
         
         updateColor();
     }
-    void updateColor(){
+
+    void updateColor() {
         BufferedImage image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D) image.getGraphics();
-        
-        if (this instanceof Player)
+
+        if (this instanceof Player) {
             graphics.setColor(Color.BLUE);
-        else 
+        } else {
             graphics.setColor(Color.YELLOW);
-        
-        if (this.getSpecialization() instanceof Tiger)
-        {
+        }
+
+        if (this.getSpecialization() instanceof Tiger) {
             graphics.setColor(Color.RED);
-        }
-        else
-        if (this.getSpecialization() instanceof Buffalo)
-        {
+        } else if (this.getSpecialization() instanceof Buffalo) {
             graphics.setColor(Color.PINK);
-        }
-        else
-        if (this.getSpecialization() instanceof Omnivorous)
-        {
+        } else if (this.getSpecialization() instanceof Omnivorous) {
             graphics.setColor(Color.ORANGE);
-        }
-        else
-        if (this.getSpecialization() instanceof Predator)
-        {
+        } else if (this.getSpecialization() instanceof Predator) {
             graphics.setColor(Color.black);
-        }
-        else
-        if (this.getSpecialization() instanceof Parasite)
-        {
+        } else if (this.getSpecialization() instanceof Parasite) {
             graphics.setColor(Color.magenta);
-        }
-        else
-        if (this.getSpecialization() instanceof Moss)
-        {
+        } else if (this.getSpecialization() instanceof Moss) {
             graphics.setColor(Color.CYAN);
         }
-        
+
         graphics.fillOval(0, 0, this.getWidth(), this.getHeight());
         this.setImage(image);
     }

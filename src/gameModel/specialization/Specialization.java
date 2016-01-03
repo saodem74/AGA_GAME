@@ -26,6 +26,10 @@ public abstract class Specialization extends Sprite {
         this.gasListener = listener;
     }
 
+    public GenerateGasListener getListener() {
+        return gasListener;
+    }
+
     public Specialization(int weight) {
         this.weight = weight;
     }

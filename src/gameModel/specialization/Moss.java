@@ -38,16 +38,6 @@ public class Moss extends SimplePlant {
     }
 
     @Override
-    public void generateGas(Point pos) {
-
-        if (gasListener == null) {
-            System.out.println("gasListener null Moss");
-        } else {
-            gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2, pos));
-        }
-    }
-
-    @Override
     public String getName() {
         return this.Name;
     }
