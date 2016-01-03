@@ -54,7 +54,7 @@ public class Computer extends Bacterium {
 
     private void RandSize() {
         Random randPos = new Random();
-        this.height = this.width = 40 + 2 * randPos.nextInt(15);
+        this.height = this.width = 20 + 2 * randPos.nextInt(10);
     }
 
     @Override
@@ -81,4 +81,6 @@ public class Computer extends Bacterium {
         this.setImage(image_);
         this.getSpecialization().setWeight(this.getWidth());
     }
+    
+    
 }

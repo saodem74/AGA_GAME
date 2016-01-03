@@ -94,6 +94,7 @@ public class BactoriumFactory extends SpriteGroup {
                     BactoriumFactory.this.remove(computer1);
                     player.updateSize();
                     player.setScore(player.getScore() + 3);
+                    player.upgrade();
                 } else {
                     player.setActive(false);
                 }
@@ -133,6 +134,7 @@ public class BactoriumFactory extends SpriteGroup {
 
                 if (br instanceof Player) {
                     br.setScore(br.getScore() + 1);
+                    br.upgrade();
 
                 }
                 //System.out.print(BactoriumFactory.this.prFac.getSize() + " -> ");

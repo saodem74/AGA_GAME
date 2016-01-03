@@ -64,6 +64,8 @@ public class Constants {
 
     public static final double PERCENT_SPEED = 0.04;
 
+    
+    
     /* return  0  - sprite is inside
      -1  - sprite touched the top
      -2  - sprite touched the right
@@ -129,4 +131,5 @@ public class Constants {
         sprite.setSpeed(spX, spY);
     }
 
+    
 }

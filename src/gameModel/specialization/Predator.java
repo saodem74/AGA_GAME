@@ -17,6 +17,7 @@ public class Predator extends SimplePlant {
     public Predator(int weight) {
         super(weight);
         this.Name = Constants.PREDATOR;
+        this.Type = Constants.PREDATOR;
     }
 
     @Override

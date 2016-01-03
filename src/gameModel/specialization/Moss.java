@@ -17,6 +17,7 @@ public class Moss extends SimplePlant {
     public Moss(int weight) {
         super(weight);
         this.Name = Constants.MOSS;
+        this.Type = Constants.MOSS;
     }
 
     @Override

@@ -51,4 +51,5 @@ public class Player extends Bacterium {
         this.getSpecialization().setWeight(this.getWidth());
     }
 
+    
 }

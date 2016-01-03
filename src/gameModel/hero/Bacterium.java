@@ -7,7 +7,13 @@ package gameModel.hero;
 
 import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
+import gameModel.specialization.Buffalo;
+import gameModel.specialization.Moss;
+import gameModel.specialization.Omnivorous;
+import gameModel.specialization.Parasite;
+import gameModel.specialization.Predator;
 import gameModel.specialization.Specialization;
+import gameModel.specialization.Tiger;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javafx.util.Pair;
@@ -72,4 +78,29 @@ public abstract class Bacterium extends Sprite {
     }
 
     public abstract void updateSize();
+    
+    public void upgrade(){
+        
+        /*
+        if (score >= 20) return ConstantsMOSS;
+        if (score >= 40) return PARASITE;
+        if (score >= 60) return PREDATOR;
+        if (score >= 80) return OMNIVOROUS;
+        if (score >= 100) return BUFFALO;
+        if (score >= 120) return TIGER;
+        return BASIC_BACTERIUM;
+               */
+        if (score >= 20)
+            this.setSpecialization(new Moss(this.width));
+        if (score >= 40)
+            this.setSpecialization(new Parasite(this.width));
+        if (score >= 60)
+            this.setSpecialization(new Predator(this.width));
+        if (score >= 80)
+            this.setSpecialization(new Omnivorous(this.width));
+        if (score >= 100)
+            this.setSpecialization(new Buffalo(this.width));
+        if (score >= 120)
+            this.setSpecialization(new Tiger(this.width));
+    }
 }
