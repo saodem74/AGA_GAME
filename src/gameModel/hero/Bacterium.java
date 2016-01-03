@@ -81,7 +81,7 @@ public abstract class Bacterium extends Sprite {
         this.specialization = spez;
     }
 
-    public abstract void updateSize();
+    public abstract void updateSize(boolean increaseSize);
 
     public void upgrade() {
 
@@ -108,7 +108,7 @@ public abstract class Bacterium extends Sprite {
         if (this.getSpecialization() != null) {
             this.getSpecialization().addGasListener(listener);
         }
-        
+
         updateColor();
     }
 

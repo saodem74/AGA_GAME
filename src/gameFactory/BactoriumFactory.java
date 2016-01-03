@@ -5,6 +5,7 @@
  */
 package gameFactory;
 
+import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
 import com.golden.gamedev.object.SpriteGroup;
 import com.golden.gamedev.object.collision.BasicCollisionGroup;
@@ -96,25 +97,25 @@ public class BactoriumFactory extends SpriteGroup {
                 if (player.getSpecialization().canEat(computer1.getSpecialization())) {
                     computer1.setActive(false);
                     BactoriumFactory.this.remove(computer1);
-                    player.updateSize();
+                    player.updateSize(true);
                     player.setScore(player.getScore() + 3);
                     player.upgrade();
-                } else
-                {
-                    if (computer1.getSpecialization().canEat(player.getSpecialization()))
+                } else {
+                    if (computer1.getSpecialization().canEat(player.getSpecialization())) {
                         player.setActive(false);
+                    }
                 }
             } else {
                 if (computer1.getSpecialization().canEat(computer2.getSpecialization())) {
                     computer2.setActive(false);
                     BactoriumFactory.this.remove(computer2);
-                    computer1.updateSize();
+                    computer1.updateSize(true);
                     computer1.upgrade();
 
                 } else if (computer2.getSpecialization().canEat(computer1.getSpecialization())) {
                     computer1.setActive(false);
                     BactoriumFactory.this.remove(computer1);
-                    computer2.updateSize();
+                    computer2.updateSize(true);
                     computer2.upgrade();;
                 }
             }
@@ -137,10 +138,13 @@ public class BactoriumFactory extends SpriteGroup {
             Particle pr = (Particle) sprite1;
             if (br.getSpecialization().canEat(pr)) {
                 pr.setActive(false);
-                br.updateSize();
                 BactoriumFactory.this.prFac.remove(pr);
-                
-                br.setScore(br.getScore() + 1);
+                boolean x = !(pr.getType().equalsIgnoreCase(Constants.CO2)
+                        || pr.getType().equalsIgnoreCase(Constants.O2));
+
+                br.setScore(br.getScore() + (x ? 1 : 0));
+                br.updateSize(x);
+
                 br.upgrade();
                 //System.out.print(BactoriumFactory.this.prFac.getSize() + " -> ");
 

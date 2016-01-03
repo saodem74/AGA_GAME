@@ -38,8 +38,14 @@ public class Player extends Bacterium {
     }
 
     @Override
-    public void updateSize() {
-        this.updateSpeed();
+    public void updateSize(boolean increaseSize) {
+
+        this.specialization.generateGas(new Point((int) this.getX(), (int) this.getY()));
+
+        if (increaseSize) {
+            return;
+        }
+
         int W = this.getWidth() + Constants.SIZE_INCREASED;
         int H = this.getHeight() + Constants.SIZE_INCREASED;
         BufferedImage image_ = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
@@ -48,8 +54,7 @@ public class Player extends Bacterium {
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
         this.getSpecialization().setWeight(this.getWidth());
-        this.specialization.generateGas(new Point((int)this.getX(), (int)this.getY()));
+        this.updateSpeed();
     }
 
-    
 }

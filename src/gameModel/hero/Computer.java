@@ -80,7 +80,19 @@ public class Computer extends Bacterium {
     }
 
     @Override
-    public void updateSize() {
+    public void updateSize(boolean increaseSize) {
+
+        this.specialization.generateGas(new Point((int) this.getX(), (int) this.getY()));
+
+        if (!increaseSize) {
+            return;
+        }
+
+        double spX = this.getSpeedX() - this.getSpeedX() * Constants.PERCENT_SPEED;
+        double spY = this.getSpeedY() - this.getSpeedX() * Constants.PERCENT_SPEED;
+
+        this.setSpeed(spX, spY);
+
         int W = this.getWidth() + Constants.SIZE_INCREASED;
         int H = this.getHeight() + Constants.SIZE_INCREASED;
         BufferedImage image_ = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
@@ -89,7 +101,7 @@ public class Computer extends Bacterium {
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
         this.getSpecialization().setWeight(this.getWidth());
-        this.specialization.generateGas(new Point((int) this.getX(), (int) this.getY()));
+
     }
 
 }
