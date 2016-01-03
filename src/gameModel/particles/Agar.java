@@ -22,7 +22,7 @@ public class Agar extends Particle {
         this.Type = Constants.AGAR;
         BufferedImage image = new BufferedImage(Constants.SIZE_AGAR, Constants.SIZE_AGAR, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D) image.getGraphics();
-        graphics.setColor(Color.PINK);
+        graphics.setColor(Color.RED);
         graphics.fillOval(0, 0, Constants.SIZE_AGAR, Constants.SIZE_AGAR);
         this.setImage(image);
         

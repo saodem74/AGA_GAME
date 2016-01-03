@@ -57,6 +57,8 @@ public class Constants {
     public static final int HEIGHT_BACKGROUND = 1600;
 
     public static final int SIZE_AGAR = 16;
+    public static final int SIZE_LIGHT = 16;
+    public static final int SIZE_WATER = 16;
 
     public static final int SIZE_INCREASED = 2;
 
