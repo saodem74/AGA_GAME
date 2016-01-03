@@ -49,27 +49,24 @@ public class Computer extends Bacterium {
             posY = 0;
         }
         this.setLocation(posX, posY);
-
         Constants.changeSpeedSprite(this);
     }
 
     private void RandSize() {
         Random randPos = new Random();
-        this.height = this.width = 30 + 2 * randPos.nextInt(15);
+        this.height = this.width = 40 + 2 * randPos.nextInt(15);
     }
 
     @Override
     public void update(long l) {
         super.update(l);
 
-        double spX = this.getHorizontalSpeed(), 
-                spY = this.getVerticalSpeed();
-        
         while (Constants.outsideBackground(this) != 0) {
             Constants.changeSpeedSprite(this);
+            this.forceX(this.getOldX() + this.getHorizontalSpeed());
+            this.forceY(this.getOldY() + this.getVerticalSpeed());
         }
-        
-        this.setSpeed(spX, spY);
+
         this.setLocation(this.getX(), this.getY());
     }
 

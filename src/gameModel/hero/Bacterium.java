@@ -20,6 +20,7 @@ public abstract class Bacterium extends Sprite {
     private double speedX;
     private double speedY;
     protected Specialization specialization;
+    protected int score;
 
     public double getSpeedX() {
         return speedX;
@@ -46,6 +47,6 @@ public abstract class Bacterium extends Sprite {
     public void setSpecialization(Specialization spez) {
         this.specialization = spez;
     }
-    
+
     public abstract void updateSize();
 }

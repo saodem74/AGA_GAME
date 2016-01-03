@@ -30,7 +30,7 @@ public class BactoriumFactory extends SpriteGroup {
 
         player = new Player();
         this.add(player);
-        initBoss(20);
+        initBoss(50);
 
         collider = new HeroCollider();
         collider.setCollisionGroup(this, this);
@@ -88,17 +88,19 @@ public class BactoriumFactory extends SpriteGroup {
                     computer1.setActive(false);
                     BactoriumFactory.this.remove(computer1);
                     player.updateSize();
+                } else {
+                    player.setActive(false);
                 }
             } else {
                 if (computer1.getSpecialization().canEat(computer2.getSpecialization())) {
                     computer2.setActive(false);
-                    BactoriumFactory.this.remove(computer1);
-                    computer2.updateSize();
-
-                } else if (computer2.getSpecialization().canEat(computer1.getSpecialization())) {
-                    computer2.setActive(false);
                     BactoriumFactory.this.remove(computer2);
                     computer1.updateSize();
+
+                } else if (computer2.getSpecialization().canEat(computer1.getSpecialization())) {
+                    computer1.setActive(false);
+                    BactoriumFactory.this.remove(computer1);
+                    computer2.updateSize();
                 }
 
             }

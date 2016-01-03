@@ -6,10 +6,8 @@
 package Utils;
 
 import com.golden.gamedev.object.Sprite;
-import static java.lang.Math.abs;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
 import java.util.Random;
-import javafx.util.Pair;
 
 /**
  *
@@ -53,7 +51,7 @@ public class Constants {
 
     public static final int SIZE_HERO = 32;
 
-    public static double SPEED_HERO = 0.5;
+    public static double SPEED_HERO = 0.3;
 
     public static final int WIDTH_BACKBROUND = 2560;
     public static final int HEIGHT_BACKGROUND = 1600;
@@ -62,7 +60,7 @@ public class Constants {
 
     public static final int SIZE_INCREASED = 2;
 
-    public static final double PERCENT_SPEED = 0.05;
+    public static final double PERCENT_SPEED = 0.1;
 
     /* return  0  - sprite is inside
      -1  - sprite touched the top
@@ -123,8 +121,8 @@ public class Constants {
             sp = (sp - sp * PERCENT_SPEED * k / (abs(k)));
         }
 
-        spX = rd.nextDouble() * sp;
-        spY = sqrt(sp * sp + spX * spX);
+        spX = pow(-1.0, rd.nextInt(2)) * rd.nextDouble() * sp;
+        spY = pow(-1.0, rd.nextInt(2)) * sqrt(sp * sp + spX * spX);
 
         sprite.setSpeed(spX, spY);
     }
