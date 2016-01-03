@@ -27,4 +27,9 @@ public class Tiger extends Rapacious {
                 || type.equalsIgnoreCase(Constants.PHYTOPHAGOUS))
                 && (2 * this.weight > other.getWeight());
     }
+
+    @Override
+    public String getName() {
+        return this.Name;
+    }
 }

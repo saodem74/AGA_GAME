@@ -6,6 +6,7 @@
 package gameModel.specialization;
 
 import Utils.Constants;
+import gameModel.events.GenerateGasEvent;
 
 /**
  *
@@ -22,5 +23,10 @@ public abstract class SimplePlant extends Specialization {
     @Override
     public String getType() {
         return this.Type;
+    }
+
+    @Override
+    public void generateGas() {
+        gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2));
     }
 }

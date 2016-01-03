@@ -25,4 +25,9 @@ public class Buffalo extends Phytophagous {
                 && 1.5 * this.weight > other.getWeight();
     }
 
+    @Override
+    public String getName() {
+        return this.Name;
+    }
+
 }

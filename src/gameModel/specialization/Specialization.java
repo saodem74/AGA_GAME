@@ -8,16 +8,22 @@ package gameModel.specialization;
 import gameModel.particles.Particle;
 import Utils.Constants;
 import com.golden.gamedev.object.Sprite;
+import gameModel.events.GenerateGasListener;
 
 /**
  *
  * @author trung
  */
-public abstract class Specialization extends Sprite{
+public abstract class Specialization extends Sprite {
 
     protected String Type = Constants.SPECIALIZATION;
     protected String Name = Constants.SPECIALIZATION;
     protected int weight = 0;
+    protected GenerateGasListener gasListener;
+
+    public void addGasListener(GenerateGasListener listener) {
+        this.gasListener = listener;
+    }
 
     public Specialization(int weight) {
         this.weight = weight;
@@ -35,7 +41,7 @@ public abstract class Specialization extends Sprite{
 
     public abstract boolean canEat(Particle particle);
 
-    public abstract void produceGas();
+    public abstract void generateGas();
 
     public abstract String getType();
 

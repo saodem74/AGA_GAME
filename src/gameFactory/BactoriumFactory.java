@@ -30,6 +30,8 @@ public class BactoriumFactory extends SpriteGroup {
 
         player = new Player();
         this.add(player);
+        player.getSpecialization().addGasListener(prFac.getObserver());
+
         initBoss(20);
 
         collider = new HeroCollider();
@@ -53,7 +55,9 @@ public class BactoriumFactory extends SpriteGroup {
 
     private void initBoss(int number) {
         for (int i = 0; i < number; i++) {
-            this.add(new Computer());
+            Computer comp = new Computer();
+            this.add(comp);
+            comp.getSpecialization().addGasListener(prFac.getObserver());
         }
     }
 
