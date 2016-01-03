@@ -31,14 +31,8 @@ public class Player extends Bacterium {
         this.setSpecialization(new BasicBacterium(this.width));
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
+ 
+    
     @Override
     public boolean isPlayer() {
         return true;

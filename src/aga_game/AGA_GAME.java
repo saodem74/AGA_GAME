@@ -13,6 +13,7 @@ import com.golden.gamedev.object.Background;
 import com.golden.gamedev.object.GameFont;
 import com.golden.gamedev.object.Sprite;
 import com.golden.gamedev.object.SpriteGroup;
+import com.golden.gamedev.object.Timer;
 import com.golden.gamedev.object.background.ColorBackground;
 import com.golden.gamedev.object.background.ImageBackground;
 import gameFactory.ParticleFactory;
@@ -35,9 +36,10 @@ public class AGA_GAME extends Game {
     Background background;
     private GameFont font;
     private boolean gameFinish = false;
-
+    private int cTime = 0;
     private BactoriumFactory heroGroup;
     private ParticleFactory partGroup;
+    Timer   countDownTimer;
 
     /**
      * @param args the command line arguments
@@ -60,6 +62,13 @@ public class AGA_GAME extends Game {
         heroGroup = new BactoriumFactory("HERO");
         heroGroup.setBackground(background);
         heroGroup.setPrFac(partGroup);
+        
+        countDownTimer = new Timer(1000);
+        // set font
+        font = fontManager.getFont(getImages("../Images/font.png", 20, 3),
+                                   " !            .,0123" +
+                                   "456789:   -? ABCDEFG" +
+                                   "HIJKLMNOPQRSTUVWXYZ ");
     }
 
     @Override
@@ -75,6 +84,9 @@ public class AGA_GAME extends Game {
         partGroup.update(elapsedTime);
         heroGroup.update();
         KeyListener();
+        if (countDownTimer.action(elapsedTime)) {
+            cTime++;
+        }
     }
 
     @Override
@@ -89,9 +101,27 @@ public class AGA_GAME extends Game {
         heroGroup.render(g);
         partGroup.render(g);
 
+        int res = ((Player)heroGroup.getSprites()[0]).getScore();
+        font.drawString(g, "SCORE : " + res  ,10, 10);
+        //font.drawString(g, "TYPE  : " + "B", 10, 30);
+        font.drawString(g, "TIME  : " + cTime, 10, 50);
+       
+        int W = heroGroup.getSprites()[0].getWidth();
+        int H = heroGroup.getSprites()[0].getHeight();
+        int heroX = (int) heroGroup.getSprites()[0].getX();
+        int heroY = (int) heroGroup.getSprites()[0].getY();
+        int screenX = (int) heroGroup.getSprites()[0].getScreenX();
+        int screenY = (int) heroGroup.getSprites()[0].getScreenY();   
+        font.drawString(g, heroGroup.getBacterium(0).typeToString() , screenX + W/3, screenY + H/2);
+        
+        
         if (!heroGroup.getSprites()[0].isActive()) {
-            //finish();
             gameFinish = true;
+        }
+        // game finishes
+        if (gameFinish)
+        {
+            font.drawString(g, "MISSION FAILED " , (int)dimesion.getWidth()/ 2 - 150, (int)dimesion.getHeight() / 2 );
         }
     }
 

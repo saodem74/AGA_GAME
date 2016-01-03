@@ -21,12 +21,15 @@ public abstract class Bacterium extends Sprite {
     protected double speedX = Constants.SPEED_HERO;
     protected double speedY = Constants.SPEED_HERO;
     protected Specialization specialization;
-    protected int score;
+    protected int score = 0;
 
+    public String typeToString(){
+        return (this.specialization.getType());
+    }
     public double getSpeedX() {
         return speedX;
     }
-
+    
     public double getSpeedY() {
         return speedY;
     }
@@ -44,6 +47,15 @@ public abstract class Bacterium extends Sprite {
         this.speedY = spY;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    
     public void updateSpeed() {
         speedX = speedX - speedX * Constants.PERCENT_SPEED;
         speedY = speedY - speedY * Constants.PERCENT_SPEED;
