@@ -28,10 +28,7 @@ public abstract class Protozoan extends Specialization {
 
     @Override
     public void generateGas(Point pos) {
-        if (gasListener == null) {
-            System.out.println("gasListener null Protozoan");
-        } else {
-            System.out.println("Protozoan generate CO2");
+        if (gasListener != null) {
             gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2, pos));
         }
     }

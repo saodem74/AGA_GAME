@@ -138,6 +138,7 @@ public class BactoriumFactory extends SpriteGroup {
             Particle pr = (Particle) sprite1;
             if (br.getSpecialization().canEat(pr)) {
                 pr.setActive(false);
+                BactoriumFactory.this.prFac.updateNumberNormal();
                 BactoriumFactory.this.prFac.remove(pr);
                 boolean x = !(pr.getType().equalsIgnoreCase(Constants.CO2)
                         || pr.getType().equalsIgnoreCase(Constants.O2));
@@ -146,12 +147,12 @@ public class BactoriumFactory extends SpriteGroup {
                 br.updateSize(x);
 
                 br.upgrade();
-                //System.out.print(BactoriumFactory.this.prFac.getSize() + " -> ");
+                System.out.print(BactoriumFactory.this.prFac.getNumberNormal() + " -> ");
 
-                if (BactoriumFactory.this.prFac.getSize() < 80) {
+                if (BactoriumFactory.this.prFac.getNumberNormal() < 80) {
                     BactoriumFactory.this.prFac.randParticle(20);
                 }
-                //System.out.println(BactoriumFactory.this.prFac.getSize());
+                System.out.println(BactoriumFactory.this.prFac.getNumberNormal());
             }
         }
     }

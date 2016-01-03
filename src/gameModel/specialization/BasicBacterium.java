@@ -40,10 +40,7 @@ public class BasicBacterium extends Specialization {
     @Override
     public void generateGas(Point pos) {
 
-        if (gasListener == null) {
-            System.out.println("gasListener null Basic");
-        } else {
-            System.out.println("Basic generate CO2");
+        if (gasListener != null) {
             gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2, pos));
         }
     }

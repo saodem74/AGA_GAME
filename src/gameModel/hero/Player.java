@@ -42,7 +42,7 @@ public class Player extends Bacterium {
 
         this.specialization.generateGas(new Point((int) this.getX(), (int) this.getY()));
 
-        if (increaseSize) {
+        if (!increaseSize) {
             return;
         }
 
