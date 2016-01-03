@@ -22,7 +22,7 @@ public class Computer extends Bacterium {
     public Computer() {
         RandSize();
         BufferedImage image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        
+
         Graphics2D graphics = (Graphics2D) image.getGraphics();
         graphics.setColor(Color.YELLOW);
         graphics.fillOval(0, 0, this.getWidth(), this.getHeight());
@@ -49,35 +49,34 @@ public class Computer extends Bacterium {
             posY = 0;
         }
         this.setLocation(posX, posY);
-        this.setSpeed(randPos.nextDouble() / 5 - randPos.nextDouble() / 5,
-                randPos.nextDouble() / 5 - randPos.nextDouble() / 5);
+
+        Constants.changeSpeedSprite(this);
     }
 
     private void RandSize() {
         Random randPos = new Random();
-        this.height = this.width = randPos.nextInt(30) + 30;
+        this.height = this.width = 30 + 2 * randPos.nextInt(15);
     }
 
     @Override
     public void update(long l) {
         super.update(l);
 
-        Random randSpeed = new Random();
-        double spX = this.getHorizontalSpeed(), spY = this.getVerticalSpeed();
-        while (AGA_GAME.outsideBackground(this) != 0) {
-            spX = randSpeed.nextDouble() / 5 - randSpeed.nextDouble() / 5;
-            spY = randSpeed.nextDouble() / 5 - randSpeed.nextDouble() / 5;
-            this.forceX(this.getOldX() + spX);
-            this.forceY(this.getOldY() + spY);
+        double spX = this.getHorizontalSpeed(), 
+                spY = this.getVerticalSpeed();
+        
+        while (Constants.outsideBackground(this) != 0) {
+            Constants.changeSpeedSprite(this);
         }
+        
         this.setSpeed(spX, spY);
         this.setLocation(this.getX(), this.getY());
     }
 
-     @Override
+    @Override
     public void updateSize() {
-        int W = this.getWidth() + 5;
-        int H = this.getHeight() + 5;
+        int W = this.getWidth() + Constants.SIZE_INCREASED;
+        int H = this.getHeight() + Constants.SIZE_INCREASED;
         BufferedImage image_ = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D) image_.getGraphics();
         graphics.setColor(Color.YELLOW);

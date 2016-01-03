@@ -77,7 +77,7 @@ public class AGA_GAME extends Game {
     private void KeyListener() {
         double speedX = 0, speedY = 0;
 
-        int outside = outsideBackground(heroGroup.getSprites()[0]);
+        int outside = Constants.outsideBackground(heroGroup.getSprites()[0]);
 
         if (keyDown(KeyEvent.VK_LEFT)
                 && !(outside == -4 || outside == -41 || outside == -34)) {
@@ -101,52 +101,6 @@ public class AGA_GAME extends Game {
         background.setToCenter(heroGroup.getSprites()[0]);
     }
 
-    /* return  0  - sprite is inside
-     -1  - sprite touched the top
-     -2  - sprite touched the right
-     -3  - sprite touched the bottom
-     -4  - sprite touched the left
-     -12 - sprite touched the top-right corner
-     -23 - sprite touched the right-bottom corner
-     -34 - sprite touched the bottom-left corner
-     -41 - sprite touched the left-top corner
-     */
-    public static int outsideBackground(Sprite sp) {
-
-        double heroX = sp.getX();
-        double heroY = sp.getY();
-        int W = sp.getWidth();
-        int H = sp.getHeight();
-        int outside = 0;
-
-        if (heroY < 0) {
-            outside = -1;
-        }
-        if (heroX + W > Constants.WIDTH_BACKBROUND) {
-            outside = -2;
-        }
-        if (heroY + H > Constants.HEIGHT_BACKGROUND) {
-            outside = -3;
-        }
-        if (heroX < 0) {
-            outside = -4;
-        }
-        if (heroY < 0 && heroX + W > Constants.WIDTH_BACKBROUND) {
-            outside = -12;
-        }
-        if (heroX + W > Constants.HEIGHT_BACKGROUND
-                && heroY + H > Constants.HEIGHT_BACKGROUND) {
-            outside = -23;
-        }
-        if (heroY + H > Constants.HEIGHT_BACKGROUND && heroX < 0) {
-            outside = -34;
-        }
-        if (heroX < 0 && heroY < 0) {
-            outside = -41;
-        }
-
-        return outside;
-
-    }
+    
 
 }

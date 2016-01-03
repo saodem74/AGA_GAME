@@ -5,6 +5,12 @@
  */
 package Utils;
 
+import com.golden.gamedev.object.Sprite;
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
+import java.util.Random;
+import javafx.util.Pair;
+
 /**
  *
  * @author trung
@@ -45,12 +51,82 @@ public class Constants {
     //Буйвол
     public static final String BUFFALO = "BUFFALO";
 
-    public static final int SIZE_HERO = 50;
+    public static final int SIZE_HERO = 32;
 
-    public static double SPEED_HERO = 0.3;
+    public static double SPEED_HERO = 0.5;
 
     public static final int WIDTH_BACKBROUND = 2560;
     public static final int HEIGHT_BACKGROUND = 1600;
 
-    public static final int SIZE_AGAR = 20;
+    public static final int SIZE_AGAR = 16;
+
+    public static final int SIZE_INCREASED = 2;
+
+    public static final double PERCENT_SPEED = 0.05;
+
+    /* return  0  - sprite is inside
+     -1  - sprite touched the top
+     -2  - sprite touched the right
+     -3  - sprite touched the bottom
+     -4  - sprite touched the left
+     -12 - sprite touched the top-right corner
+     -23 - sprite touched the right-bottom corner
+     -34 - sprite touched the bottom-left corner
+     -41 - sprite touched the left-top corner
+     */
+    public static int outsideBackground(Sprite sp) {
+
+        double heroX = sp.getX();
+        double heroY = sp.getY();
+        int W = sp.getWidth();
+        int H = sp.getHeight();
+        int outside = 0;
+
+        if (heroY < 0) {
+            outside = -1;
+        }
+        if (heroX + W > Constants.WIDTH_BACKBROUND) {
+            outside = -2;
+        }
+        if (heroY + H > Constants.HEIGHT_BACKGROUND) {
+            outside = -3;
+        }
+        if (heroX < 0) {
+            outside = -4;
+        }
+        if (heroY < 0 && heroX + W > Constants.WIDTH_BACKBROUND) {
+            outside = -12;
+        }
+        if (heroX + W > Constants.HEIGHT_BACKGROUND
+                && heroY + H > Constants.HEIGHT_BACKGROUND) {
+            outside = -23;
+        }
+        if (heroY + H > Constants.HEIGHT_BACKGROUND && heroX < 0) {
+            outside = -34;
+        }
+        if (heroX < 0 && heroY < 0) {
+            outside = -41;
+        }
+
+        return outside;
+    }
+
+    public static void changeSpeedSprite(Sprite sprite) {
+        double spX = 0;
+        double spY = 0;
+        double sp = SPEED_HERO * sqrt(2);
+        Random rd = new Random();
+
+        int k = (sprite.getHeight() - SIZE_HERO) / 2;
+
+        for (int i = 0; i < abs(k); i++) {
+            sp = (sp - sp * PERCENT_SPEED * k / (abs(k)));
+        }
+
+        spX = rd.nextDouble() * sp;
+        spY = sqrt(sp * sp + spX * spX);
+
+        sprite.setSpeed(spX, spY);
+    }
+
 }
