@@ -6,6 +6,7 @@
 package gameModel.specialization;
 
 import Utils.Constants;
+import gameModel.events.GenerateGasEvent;
 import gameModel.particles.Particle;
 
 /**
@@ -35,8 +36,8 @@ public class BasicBacterium extends Specialization {
     }
 
     @Override
-    public void produceGas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void generateGas() {
+        gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.CO2));
     }
 
     @Override

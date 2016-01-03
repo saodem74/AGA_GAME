@@ -33,10 +33,6 @@ public class Moss extends SimplePlant {
                 || type.equalsIgnoreCase(Constants.LIGHT);
     }
 
-    @Override
-    public void produceGas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public String getName() {

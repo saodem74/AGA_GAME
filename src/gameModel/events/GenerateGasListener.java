@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gameModel.particles;
+package gameModel.events;
 
-import Utils.Constants;
-import java.awt.Point;
+import java.util.EventListener;
 
 /**
  *
  * @author trung
  */
-public class O2 extends Gas {
+public interface GenerateGasListener extends EventListener {
 
-    public O2() {
-        this.path_img = "../Images/O2.jpg";
-        this.Type = Constants.O2;
-    }
+    public void generateGas(GenerateGasEvent event);
+
 }

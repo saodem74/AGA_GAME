@@ -31,8 +31,6 @@ public class Player extends Bacterium {
         this.setSpecialization(new BasicBacterium(this.width));
     }
 
- 
-    
     @Override
     public boolean isPlayer() {
         return true;
@@ -49,6 +47,7 @@ public class Player extends Bacterium {
         graphics.fillOval(0, 0, W, H);
         this.setImage(image_);
         this.getSpecialization().setWeight(this.getWidth());
+        this.specialization.generateGas();
     }
 
     

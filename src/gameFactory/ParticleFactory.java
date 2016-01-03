@@ -5,9 +5,14 @@
  */
 package gameFactory;
 
+import Utils.Constants;
 import com.golden.gamedev.object.SpriteGroup;
+import gameModel.events.GenerateGasEvent;
+import gameModel.events.GenerateGasListener;
 import gameModel.particles.Agar;
+import gameModel.particles.CO2;
 import gameModel.particles.Light;
+import gameModel.particles.O2;
 import gameModel.particles.Water;
 import java.util.Random;
 
@@ -16,6 +21,12 @@ import java.util.Random;
  * @author trung
  */
 public final class ParticleFactory extends SpriteGroup {
+
+    private final GenerateGasObserver observer = new GenerateGasObserver();
+
+    public GenerateGasObserver getObserver() {
+        return observer;
+    }
 
     public ParticleFactory(String string) {
         super(string);
@@ -50,4 +61,22 @@ public final class ParticleFactory extends SpriteGroup {
             this.add(new Water());
         }
     }
+
+    private void initGas(String type) {
+        if (type.equalsIgnoreCase(Constants.CO2)) {
+            this.add(new CO2());
+        } else {
+            this.add(new O2());
+        }
+    }
+
+    private class GenerateGasObserver implements GenerateGasListener {
+
+        @Override
+        public void generateGas(GenerateGasEvent event) {
+            initGas(event.getType());
+        }
+
+    }
+
 }

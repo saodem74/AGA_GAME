@@ -40,13 +40,8 @@ public class Phytophagous extends Protozoan {
     }
 
     @Override
-    public void produceGas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.Name;
     }
 
 }
