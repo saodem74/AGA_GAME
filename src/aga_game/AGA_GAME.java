@@ -10,6 +10,7 @@ import Utils.Constants;
 import com.golden.gamedev.Game;
 import com.golden.gamedev.GameLoader;
 import com.golden.gamedev.object.Background;
+import com.golden.gamedev.object.GameFont;
 import com.golden.gamedev.object.Sprite;
 import com.golden.gamedev.object.SpriteGroup;
 import com.golden.gamedev.object.background.ColorBackground;
@@ -20,6 +21,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javafx.scene.text.Font.font;
 
 /**
  *
@@ -29,6 +33,8 @@ public class AGA_GAME extends Game {
 
     private static final Dimension dimesion = new Dimension(1024, 750);
     Background background;
+    private GameFont font;
+    private boolean gameFinish = false;
 
     private BactoriumFactory heroGroup;
     private ParticleFactory partGroup;
@@ -59,6 +65,11 @@ public class AGA_GAME extends Game {
     @Override
     public void update(long elapsedTime) {
         // update background
+
+        if (gameFinish) {
+            return;
+        }
+
         background.update(elapsedTime);
         heroGroup.update(elapsedTime);
         partGroup.update(elapsedTime);
@@ -68,10 +79,22 @@ public class AGA_GAME extends Game {
 
     @Override
     public void render(Graphics2D g) {
+
+        if (gameFinish) {
+            return;
+        }
+        
         // rend background
         background.render(g);
         heroGroup.render(g);
         partGroup.render(g);
+
+        if (!heroGroup.getSprites()[0].isActive()) {
+            //finish();
+            gameFinish = true;
+
+            return;
+        }
     }
 
     private void KeyListener() {
@@ -100,7 +123,5 @@ public class AGA_GAME extends Game {
         // set sprite1 (the one we control) as the center of the background
         background.setToCenter(heroGroup.getSprites()[0]);
     }
-
-    
 
 }
