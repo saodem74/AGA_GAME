@@ -116,12 +116,14 @@ public class BactoriumFactory extends SpriteGroup {
                     computer2.setActive(false);
                     BactoriumFactory.this.remove(computer2);
                     computer1.updateSize(true);
+                    computer1.setScore(computer1.getScore() + 3);
                     computer1.upgrade();
 
                 } else if (computer2.getSpecialization().canEat(computer1.getSpecialization())) {
                     computer1.setActive(false);
                     BactoriumFactory.this.remove(computer1);
                     computer2.updateSize(true);
+                    computer2.setScore(computer2.getScore() + 3);
                     computer2.upgrade();;
                 }
             }

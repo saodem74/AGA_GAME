@@ -88,10 +88,10 @@ public class Computer extends Bacterium {
             return;
         }
 
-        double spX = this.getSpeedX() - this.getSpeedX() * Constants.PERCENT_SPEED;
-        double spY = this.getSpeedY() - this.getSpeedX() * Constants.PERCENT_SPEED;
+        //double spX = this.getSpeedX() - this.getSpeedX() / Math.abs(this.getSpeedX()) * this.getSpeedX() * Constants.PERCENT_SPEED;
+        //double spY = this.getSpeedY() - this.getSpeedY() / Math.abs(this.getSpeedY()) *this.getSpeedX() * Constants.PERCENT_SPEED;
 
-        this.setSpeed(spX, spY);
+        //this.setSpeed(spX, spY);
 
         int W = this.getWidth() + Constants.SIZE_INCREASED;
         int H = this.getHeight() + Constants.SIZE_INCREASED;
