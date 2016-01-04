@@ -50,10 +50,10 @@ public class BactoriumFactory extends SpriteGroup {
     }
 
     public void update() {
-        collider.checkCollision();
+       
 
         try {
-
+            collider.checkCollision();
             prCollider.checkCollision();
         } catch (ArrayIndexOutOfBoundsException exc) {
             System.err.println(exc.toString());

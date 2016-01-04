@@ -32,5 +32,6 @@ public abstract class SimplePlant extends Specialization {
         if (gasListener != null) {
             gasListener.generateGas(new GenerateGasEvent(new Object(), Constants.O2, pos));
         }
+        else System.out.println("Plant genGas null");
     }
 }

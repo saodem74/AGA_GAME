@@ -55,7 +55,7 @@ public class AGA_GAME extends Game {
     @Override
     public void initResources() {
         //background = new ColorBackground(Color.GRAY, 1024, 768);
-        background = new ImageBackground(getImage("../Images/background2.jpg"), Constants.WIDTH_BACKBROUND, Constants.HEIGHT_BACKGROUND);
+        background = new ImageBackground(getImage("Images/background2.jpg"), Constants.WIDTH_BACKBROUND, Constants.HEIGHT_BACKGROUND);
         partGroup = new ParticleFactory("Particle");
         partGroup.setBackground(background);
 
@@ -65,7 +65,7 @@ public class AGA_GAME extends Game {
 
         countDownTimer = new Timer(1000);
         // set font
-        font = fontManager.getFont(getImages("../Images/font.png", 20, 3),
+        font = fontManager.getFont(getImages("Images/font.png", 20, 3),
                 " !            .,0123"
                 + "456789:   -? ABCDEFG"
                 + "HIJKLMNOPQRSTUVWXYZ ");

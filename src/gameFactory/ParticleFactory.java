@@ -104,19 +104,20 @@ public final class ParticleFactory extends SpriteGroup {
             return;
         }
 
-        for (int i = 0; i < this.getSize() && numDel < 50; i++) {
+        for (int i = 0; i < this.getSize() && numDel < 10; i++) {
             Particle par = (Particle) this.getSprites()[i];
 
             if (par.getType().equalsIgnoreCase(Constants.CO2)
-                    || par.getType().equalsIgnoreCase(Constants.CO2)) {
+                    || par.getType().equalsIgnoreCase(Constants.O2)) {
                 par.setActive(false);
                 this.remove(par);
                 System.out.println("delete Gas");
                 i--;
                 numDel++;
+                numberGas--;
             }
         }
-
+        
     }
 
     private class GenerateGasObserver implements GenerateGasListener {
